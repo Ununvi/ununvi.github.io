@@ -3,14 +3,14 @@ const descriptionBox = document.getElementById("description");
 
 // 설명 내용들 (각 설명에 CSS 클래스 추가)
 const descriptions = {
-    1: "<div class='description-type'>Design</div><div class='description-title'>Photoshop</div><div class='description-type'>strength</div><div class='description-text'>색감 보정, 합성<br>사진 편집, 영상 편집<br>스크린 디자인, 그래픽</div>",
-    2: "<div class='description-type'>Design</div><div class='description-title'>Illustrator</div><div class='description-type'>strength</div><div class='description-text'>로고, 아이콘<br>타이포그래피<br>일러스트레이션</div>",
-    3: "<div class='description-type'>UXUI</div><div class='description-title'>Adobe XD</div><div class='description-type'>strength</div><div class='description-text'>벡터 기반 디자인<br>프로토타이핑<br>반응형 웹 제작</div>",
-    4: "<div class='description-type'>IDE</div><div class='description-title'>Dreamweaver</div><div class='description-type'>strength</div><div class='description-text'>웹 문서 구조 정의, 목록<br>내비게이션, 멀티미디어<br>시멘틱, 인터랙티브 요소</div>",
-    5: "<div class='description-type'>UXUI</div><div class='description-title'>Figma</div><div class='description-type'>strength</div><div class='description-text'>반응형 디자인<br>컴포넌트 제작<br>프로토타이핑</div>",
-    6: "<div class='description-type'>Markup Language</div><div class='description-title'>HTML5</div><div class='description-type'>strength</div><div class='description-text'>웹 문서 구조 정의, 목록<br>내비게이션, 멀티미디어<br>시멘틱, 인터랙티브 요소</div>",
-    7: "<div class='description-type'>stylesheet language</div><div class='description-title'>CSS3</div><div class='description-type'>strength</div><div class='description-text'>레이아웃, 객체 배치, 스타일링<br>애니메이션, 반응형 웹, 인터렉션<br>사용자 경험 개선, 다크모드</div>",
-    8: "<div class='description-type'>script language</div><div class='description-title'>JavaScript</div><div class='description-type'>strength</div><div class='description-text'>이벤트 처리, 사용자 입력 처리<br>애니메이션, 인터랙션, 로컬 저장<br>객체 조작, 반응형 웹 사이트 구현</div>"
+    1: "<div class='description-type'>Design</div><div class='description-title'>Photoshop</div><div class='description-type'>Strength</div><div class='description-text'>색감 보정, 합성<br>사진 편집, 영상 편집<br>스크린 디자인, 그래픽</div>",
+    2: "<div class='description-type'>Design</div><div class='description-title'>Illustrator</div><div class='description-type'>Strength</div><div class='description-text'>로고, 아이콘<br>타이포그래피<br>일러스트레이션</div>",
+    3: "<div class='description-type'>UXUI</div><div class='description-title'>Adobe XD</div><div class='description-type'>Strength</div><div class='description-text'>벡터 기반 디자인<br>프로토타이핑<br>반응형 웹 제작</div>",
+    4: "<div class='description-type'>IDE</div><div class='description-title'>Dreamweaver</div><div class='description-type'>Strength</div><div class='description-text'>웹 문서 구조 정의, 목록<br>내비게이션, 멀티미디어<br>시멘틱, 인터랙티브 요소</div>",
+    5: "<div class='description-type'>UXUI</div><div class='description-title'>Figma</div><div class='description-type'>Strength</div><div class='description-text'>반응형 디자인<br>컴포넌트 제작<br>프로토타이핑</div>",
+    6: "<div class='description-type'>Markup Language</div><div class='description-title'>HTML5</div><div class='description-type'>Strength</div><div class='description-text'>웹 문서 구조 정의, 목록<br>내비게이션, 멀티미디어<br>시멘틱, 인터랙티브 요소</div>",
+    7: "<div class='description-type'>stylesheet language</div><div class='description-title'>CSS3</div><div class='description-type'>Strength</div><div class='description-text'>레이아웃, 객체 배치, 스타일링<br>애니메이션, 반응형 웹, 인터렉션<br>사용자 경험 개선, 다크모드</div>",
+    8: "<div class='description-type'>script language</div><div class='description-title'>JavaScript</div><div class='description-type'>Strength</div><div class='description-text'>이벤트 처리, 사용자 입력 처리<br>애니메이션, 인터랙션, 로컬 저장<br>객체 조작, 반응형 웹 사이트 구현</div>"
 };
 
 // ✅ 요소들의 개별 위치 설정
