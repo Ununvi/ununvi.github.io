@@ -5,6 +5,10 @@
   height: 100vh;
   flex-direction: row;
   background-color: #fff;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-use-select: none;
+  user-select: none;
 
 }
 
