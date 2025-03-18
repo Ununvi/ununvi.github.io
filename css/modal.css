@@ -1,19 +1,23 @@
-button {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-use-select: none;
-    user-select: none;
-    border: none;
-    display: flex;
-    align-items: center;
-    background: none;
-    color: #000;
-    font-family: "SE-Pro", sans-serif;
-    font-style: normal;
-    font-size: 11pt;
-    font-weight: 600;
+/* 태블릿 (최대 1024px) */
+@media (max-width: 1024px) {
+  .modal-type {
+    font-size: 11px;
   }
+}
 
+/* 일반 데스크톱 (1025px ~ 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .modal-type {
+    font-size: 14px;
+  }
+}
+
+/* 대형 화면 (1441px 이상) 임시*/
+@media (min-width: 1441px) {
+  .modal-type{
+    font-size: 20px;
+  }
+}
 
   /* 오버레이 */
   .overlay {
@@ -33,14 +37,14 @@ button {
     position: fixed;
     top: 50%;
     left: -200px;
-    transform: translateY(-50%);
+    transform: translate(25%, -50%);
     background: white;
     border-radius: 10px;
     padding: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 995;
     transition: left 0.3s ease-in-out;
-    max-width: 300px;
+    max-width: 500px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -50,6 +54,7 @@ button {
   }
   .modal img{
     height: 20vh;
+    padding-bottom: 10px;
   }
   .modal-container{
     display: flex;
@@ -61,24 +66,19 @@ button {
   }
   .modal h2{
     padding: 10px 0 20px 0;
-    font-size: 18pt;
     font-weight: 800;
   }
-  .modal-type{
+  .modal-subtitle{
+    font-weight: 800;
+  }
+  .modal-short{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 15px 0;
-  }
-  .modal-type span{
-    font-size: 8pt;
-    font-weight: 800;
-    padding: 5px 0;
+    padding: 12px 0;
   }
   .modal p{
-    font-size: 8pt;
-    font-weight: 400;
-    padding: 5px 0;
+    padding: 3px 0;
+    text-align: start;
   }
 
 
