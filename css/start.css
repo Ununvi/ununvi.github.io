@@ -8,12 +8,12 @@
   -moz-user-select: none;
   -ms-use-select: none;
   user-select: none;
-  font-size: 62.5%;
 }
 
 body {
     overflow-x: hidden;
     scroll-behavior: smooth;
+    font-size: 62.5%;
 }
 header {
   display: flex;
