@@ -68,7 +68,7 @@ body {
 header {
   display: flex;
   justify-content: center;
-    margin-top: 5vh;
+    margin-top: 3vh;
     position: fixed;
     width: 100%;
     padding: 10px 0;
@@ -80,9 +80,9 @@ header {
   
 }
 nav {
-    width: 20vw;
-    padding: 10px 0;
-    background-color: #f9f9f9df;
+    width: 22vw;
+    padding: 15px 0;
+    background-color: #f9f9f9b6;
     border-radius: 50px;
     backdrop-filter: blur(4px);
 
