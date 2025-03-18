@@ -1,3 +1,4 @@
+
 #skills{
   display: flex;
   width: 100vw;
@@ -32,7 +33,7 @@
 
         /* ✅ 오른쪽: 설명 표시 영역 */
         .description-area {
-            margin: 30px;
+            padding: 50px;
 
         }
 
