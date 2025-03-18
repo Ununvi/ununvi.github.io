@@ -70,6 +70,7 @@ section {
     align-items: center;
     opacity: 0;
     transition: opacity 1s ease-out, transform 1s ease-out;
+    font-size: 62.5%;
 }
 .full-page {
   height: 100vh;
