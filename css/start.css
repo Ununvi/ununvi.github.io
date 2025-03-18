@@ -8,12 +8,12 @@
   -moz-user-select: none;
   -ms-use-select: none;
   user-select: none;
+  font-size: 62.5%;
 }
 
 body {
     overflow-x: hidden;
     scroll-behavior: smooth;
-    font-size: 62.5%;
 }
 header {
   display: flex;
@@ -24,7 +24,7 @@ header {
     padding: 10px 0;
     color: black;
     z-index: 993;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
 }
 #index{
   background-color: #fff;
@@ -70,7 +70,6 @@ section {
     align-items: center;
     opacity: 0;
     transition: opacity 1s ease-out, transform 1s ease-out;
-    font-size: 62.5%;
 }
 .full-page {
   height: 100vh;
@@ -91,7 +90,7 @@ section {
   z-index: 999;
 }
 .index-h2{
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   color: #bbb;
   margin-bottom: 50px;
   font-family: "SE-Pro", sans-serif;
@@ -115,7 +114,7 @@ section {
     border-radius: 10px;
     padding: 20px;
     margin: 0 20px;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     line-height: 20pt;
     font-family: "SE-Pro", sans-serif;
     font-weight: 400;
@@ -145,13 +144,13 @@ section {
     margin-bottom: 10px;
   }
  .project_category{
-    font-size: 1.0rem;
+    font-size: 0.8rem;
     color: #bbb;
   }
   .project_detail{
-    color: #666;
+    color: #222;
     padding-top: 15px;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     line-height: 12pt;
   }
 #hi {
@@ -174,7 +173,7 @@ section {
 .falling-text {
   position: absolute;
   padding: 10px;
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   color: #33333300;
   text-align: center;
   background-color: #ffffffc8;
@@ -198,7 +197,7 @@ section {
 .hi-p{
   position: absolute;
   top: 250px;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   font-family: "SE-Pro", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -221,20 +220,20 @@ section {
   user-select: none;
 }
 .hi-info-left{
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   font-family: "SE-Pro", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 .hi-info-left span{
   padding-left: 5px;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
 }
 
 
 
 .description-type {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   color: #bbb;
   margin: 0 0 10px 0;
   font-family: "SE-Pro", sans-serif;
@@ -242,7 +241,7 @@ section {
   font-style: normal;
 }
 .description-title {
-  font-size: 2.0rem;
+  font-size: 1.0rem;
   color: #000;
   margin-bottom: 200px;
   font-family: "SE-Pro", sans-serif;
@@ -251,7 +250,7 @@ section {
 }
 
 .description-text {
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   color: #2d2d2d;
   text-align: justify;
   font-family: "SE-Pro", sans-serif;
@@ -286,7 +285,7 @@ section {
   user-select: none;
 }
 .skills-tip p{
-  font-size: 1.0rem;
+  font-size: 0.8rem;
   color: #bbb;
   font-family: "SE-Pro", sans-serif;
   font-weight: 600;
