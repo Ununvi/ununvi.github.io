@@ -1,3 +1,54 @@
+/* 태블릿 (최대 1024px) */
+@media (max-width: 1024px) {
+  h1, .description-title {
+    font-size: 28px;
+  }
+  h2{
+    font-size: 16px;
+  }
+  p, .description-text, li, button, .floating-item {
+    font-size: 11px;
+  }
+  p .small, .description-type {
+    font-size: 9px;
+    color: #999;
+  }
+}
+
+/* 일반 데스크톱 (1025px ~ 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  h1, .description-title {
+    font-size: 30px;
+  }
+  h2{
+    font-size: 28px;
+  }
+  p, .description-text, li, button, .floating-item{
+    font-size: 14px;
+  }
+  p .small, .description-type {
+    font-size: 12px;
+    color: #999;
+  }
+}
+
+/* 대형 화면 (1441px 이상) 임시*/
+@media (min-width: 1441px) {
+  h1, .description-title {
+    font-size: 50px;
+  }
+  h2{
+    font-size: 32px;
+  }
+  p, .description-text, li, button, .floating-item{
+    font-size: 20px;
+  }
+  p .small, .description-type{
+    font-size: 18px;
+    color: #999;
+  }
+}
+
 
 @import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Figtree:ital,wght@0,300..900;1,300..900&family=Orbit&display=swap');
 * {
@@ -8,9 +59,8 @@
   -moz-user-select: none;
   -ms-use-select: none;
   user-select: none;
-  font-size: 62.5%;
+  
 }
-
 body {
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -24,7 +74,6 @@ header {
     padding: 10px 0;
     color: black;
     z-index: 993;
-    font-size: 1.0rem;
 }
 #index{
   background-color: #fff;
@@ -89,19 +138,6 @@ section {
   transition: transform 0.1s ease-out;
   z-index: 999;
 }
-.index-h2{
-  font-size: 0.8rem;
-  color: #bbb;
-  margin-bottom: 50px;
-  font-family: "SE-Pro", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 800;
-  font-style: normal;
-  width: 78vw;
-  display: flex;
-  justify-content: flex-start
-
-}
   .project{
     display: flex;
     flex-direction: row;
@@ -112,9 +148,8 @@ section {
     width: 20vw;
     background-color: white;
     border-radius: 10px;
-    padding: 20px;
+    padding: 25px;
     margin: 0 20px;
-    font-size: 1.0rem;
     line-height: 20pt;
     font-family: "SE-Pro", sans-serif;
     font-weight: 400;
@@ -136,23 +171,21 @@ section {
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
+    padding-bottom: 15px;
   }
   .project img{
     width: 20vw;
+    padding: 10px 0;
   }
-  .project h4{
-    margin-bottom: 10px;
-  }
- .project_category{
-    font-size: 0.8rem;
-    color: #bbb;
+  .project .small{
+    padding-bottom: 15px;
   }
   .project_detail{
-    color: #222;
+    color: #666;
     padding-top: 15px;
-    font-size: 1.0rem;
-    line-height: 12pt;
+    line-height: 140%;
   }
+
 #hi {
   width: 100vw;
   height: 100vh;
@@ -173,7 +206,6 @@ section {
 .falling-text {
   position: absolute;
   padding: 10px;
-  font-size: 1.0rem;
   color: #33333300;
   text-align: center;
   background-color: #ffffffc8;
@@ -186,18 +218,14 @@ section {
  user-select: none;
 }
 
-.hi-h2{
+.hi_h1{
   position: absolute;
   top: 200px;
   font-family: "SE-Pro", sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: 3.0rem;
 }
-.hi-p{
-  position: absolute;
-  top: 250px;
-  font-size: 0.8rem;
+.small{
   font-family: "SE-Pro", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -220,44 +248,39 @@ section {
   user-select: none;
 }
 .hi-info-left{
-  font-size: 0.8rem;
+
   font-family: "SE-Pro", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 .hi-info-left span{
   padding-left: 5px;
-  font-size: 0.8rem;
+
 }
 
 
 
 .description-type {
-  font-size: 0.8rem;
-  color: #bbb;
   margin: 0 0 10px 0;
   font-family: "SE-Pro", sans-serif;
   font-weight: 600;
   font-style: normal;
 }
 .description-title {
-  font-size: 1.0rem;
   color: #000;
-  margin-bottom: 200px;
+  margin-bottom: 280px;
   font-family: "SE-Pro", sans-serif;
   font-weight: 800;
   font-style: normal;
 }
 
 .description-text {
-  font-size: 1.0rem;
-  color: #2d2d2d;
   text-align: justify;
   font-family: "SE-Pro", sans-serif;
   font-weight: 400;
   font-style: normal;
   text-align: end;
-  line-height: 16pt;
+  line-height: 20pt;
 }
 
 .description-area {
@@ -272,7 +295,7 @@ section {
 .skills-hr{
   margin-right: 80px;
   width: 1px;
-  height: 450px;
+  height: 500px;
   background-color: #000;
 }
 
@@ -283,12 +306,23 @@ section {
   -moz-user-select: none;
   -ms-use-select: none;
   user-select: none;
-}
-.skills-tip p{
-  font-size: 0.8rem;
-  color: #bbb;
   font-family: "SE-Pro", sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-style: normal;
+}
+
+button {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-use-select: none;
+  user-select: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  background: none;
+  color: #000;
+  font-family: "SE-Pro", sans-serif;
+  font-style: normal;
+  font-weight: 600;
 }
 
