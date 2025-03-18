@@ -15,14 +15,14 @@ const descriptions = {
 
 // ✅ 요소들의 개별 위치 설정
 const positions = [
-    { top: "30%", left: "5%" },
+    { top: "30%", left: "10%" },
     { top: "30%", left: "40%" },
     { top: "50%", left: "60%" },
     { top: "85%", left: "75%" },
     { top: "20%", left: "70%" },
     { top: "40%", left: "50%" },
     { top: "60%", left: "30%" },
-    { top: "80%", left: "10%" }
+    { top: "80%", left: "20%" }
 ];
 
 items.forEach((item, index) => {
