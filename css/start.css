@@ -11,41 +11,41 @@
   }
   p .small, .description-type {
     font-size: 9px;
-    color: #999;
+    color: #ccc;
   }
 }
 
 /* 일반 데스크톱 (1025px ~ 1440px) */
 @media (min-width: 1025px) and (max-width: 1440px) {
   h1, .description-title {
-    font-size: 30px;
-  }
-  h2{
     font-size: 28px;
   }
+  h2{
+    font-size: 20px;
+  }
   p, .description-text, li, button, .floating-item{
-    font-size: 14px;
+    font-size: 13px;
   }
   p .small, .description-type {
     font-size: 12px;
-    color: #999;
+    color: #ccc;
   }
 }
 
 /* 대형 화면 (1441px 이상) 임시*/
 @media (min-width: 1441px) {
   h1, .description-title {
-    font-size: 50px;
+    font-size: 60px;
   }
   h2{
-    font-size: 32px;
+    font-size: 35px;
   }
   p, .description-text, li, button, .floating-item{
     font-size: 20px;
   }
   p .small, .description-type{
-    font-size: 18px;
-    color: #999;
+    font-size: 20px;
+    color: #ccc;
   }
 }
 
@@ -68,7 +68,7 @@ body {
 header {
   display: flex;
   justify-content: center;
-    margin-top: 20px;
+    margin-top: 5vh;
     position: fixed;
     width: 100%;
     padding: 10px 0;
@@ -80,7 +80,7 @@ header {
   
 }
 nav {
-    width: 350px;
+    width: 20vw;
     padding: 10px 0;
     background-color: #f9f9f9df;
     border-radius: 50px;
@@ -126,9 +126,9 @@ section {
 }
 
 .cursor {
-  width: 15px;
-  height: 15px;
-  background-color: rgba(55, 55, 55, 0.7);
+  width: 1.5vw;
+  height: 1.5vw;
+  background-color: rgba(53, 255, 56, 0.778);
   border-radius: 50%;
   position: fixed;
   top: 0;
@@ -143,18 +143,18 @@ section {
     flex-direction: row;
     justify-content: center;
     margin-top: 100px;
+    padding: 0 120px;
   }
   .project_card{
-    width: 20vw;
+    width: 25vw;
     background-color: white;
     border-radius: 10px;
-    padding: 25px;
+    padding: 20px;
     margin: 0 20px;
     line-height: 20pt;
     font-family: "SE-Pro", sans-serif;
-    font-weight: 400;
     font-style: normal;
-    box-shadow: 3px 1px 10px rgba(141, 141, 141, 0.215);
+    box-shadow: 1px 1px 6px rgba(86, 86, 86, 0.155);
     transition: transform 1.5s ease-in-out;
     text-decoration-line: none;
     color: #000;
@@ -171,18 +171,19 @@ section {
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
   }
-  .project img{
-    width: 20vw;
+  .project_img{
+    width: 100%;
     padding: 10px 0;
   }
   .project .small{
-    padding-bottom: 15px;
+    padding-bottom: 5px;
   }
   .project_detail{
     color: #666;
     padding-top: 15px;
+    padding-bottom: 10px;
     line-height: 140%;
   }
 
@@ -199,7 +200,8 @@ section {
 
 }
 #falling-container {
-  position: relative;
+  width: 100vw;
+  height: 60vh;
   overflow: hidden;
 }
 
@@ -219,8 +221,7 @@ section {
 }
 
 .hi_h1{
-  position: absolute;
-  top: 200px;
+  margin-top: 20vh;
   font-family: "SE-Pro", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -229,36 +230,10 @@ section {
   font-family: "SE-Pro", sans-serif;
   font-weight: 400;
   font-style: normal;
-  color: #c6c6c6;
+  color: #ccc;
   z-index: 3;
 
 }
-
-.hi-info {
-  width: 87vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  bottom: 80px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-use-select: none;
-  user-select: none;
-}
-.hi-info-left{
-
-  font-family: "SE-Pro", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-.hi-info-left span{
-  padding-left: 5px;
-
-}
-
-
 
 .description-type {
   margin: 0 0 10px 0;
@@ -268,7 +243,7 @@ section {
 }
 .description-title {
   color: #000;
-  margin-bottom: 280px;
+  margin-bottom: 45vh;
   font-family: "SE-Pro", sans-serif;
   font-weight: 800;
   font-style: normal;
@@ -293,9 +268,9 @@ section {
 }
 
 .skills-hr{
-  margin-right: 80px;
+  margin-right: 8vw;
   width: 1px;
-  height: 500px;
+  height: 70vh;
   background-color: #000;
 }
 
@@ -311,7 +286,7 @@ section {
   font-style: normal;
 }
 
-button {
+.profile-button {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-use-select: none;
@@ -322,7 +297,31 @@ button {
   background: none;
   color: #000;
   font-family: "SE-Pro", sans-serif;
+  padding: 40px 0;
   font-style: normal;
   font-weight: 600;
 }
 
+.hi-info {
+  width: 87vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 10vh;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-use-select: none;
+  user-select: none;
+}
+.hi-info-left{
+
+  font-family: "SE-Pro", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.hi-info-left span{
+  padding-left: 5px;
+
+}
