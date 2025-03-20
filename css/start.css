@@ -1,52 +1,17 @@
-/* 태블릿 (최대 1024px) */
-@media (max-width: 1024px) {
-  h1, .description-title {
-    font-size: 28px;
-  }
-  h2{
-    font-size: 16px;
-  }
-  p, .description-text, li, button, .floating-item {
-    font-size: 11px;
-  }
-  p .small, .description-type {
-    font-size: 9px;
-    color: #ccc;
-  }
+h1, .description-title {
+  font-size: clamp(30px, 2.5vw, 40px);
 }
 
-/* 일반 데스크톱 (1025px ~ 1440px) */
-@media (min-width: 1025px) and (max-width: 1440px) {
-  h1, .description-title {
-    font-size: 28px;
-  }
-  h2{
-    font-size: 20px;
-  }
-  p, .description-text, li, button, .floating-item{
-    font-size: 13px;
-  }
-  p .small, .description-type {
-    font-size: 12px;
-    color: #ccc;
-  }
+h2 {
+  font-size: clamp(16px, 2vw, 22px);
 }
 
-/* 대형 화면 (1441px 이상) 임시*/
-@media (min-width: 1441px) {
-  h1, .description-title {
-    font-size: 60px;
-  }
-  h2{
-    font-size: 35px;
-  }
-  p, .description-text, li, button, .floating-item{
-    font-size: 20px;
-  }
-  p .small, .description-type{
-    font-size: 20px;
-    color: #ccc;
-  }
+p, .description-text, li, button, .floating-item {
+  font-size: clamp(9px, 1.2vw, 12px);
+}
+
+.small, .description-type, .modal-type {
+  font-size: clamp(9px, 1.2vw, 12px);
 }
 
 
@@ -126,9 +91,9 @@ section {
 }
 
 .cursor {
-  width: 1.5vw;
-  height: 1.5vw;
-  background-color: rgba(53, 255, 56, 0.778);
+  width: 1.2vw;
+  height: 1.2vw;
+  background-color: rgba(119, 119, 119, 0.778);
   border-radius: 50%;
   position: fixed;
   top: 0;
@@ -284,22 +249,6 @@ section {
   font-family: "SE-Pro", sans-serif;
   font-weight: 400;
   font-style: normal;
-}
-
-.profile-button {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-use-select: none;
-  user-select: none;
-  border: none;
-  display: flex;
-  align-items: center;
-  background: none;
-  color: #000;
-  font-family: "SE-Pro", sans-serif;
-  padding: 40px 0;
-  font-style: normal;
-  font-weight: 600;
 }
 
 .hi-info {
