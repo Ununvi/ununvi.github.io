@@ -25,9 +25,9 @@
     transition: left 0.3s ease-in-out;
     margin-left: auto;
     margin-right: auto;
-    max-width: 35vw;
-    min-width: 30vw;
-    width: 35vw;
+    max-width: 39vw;
+    min-width: 36vw;
+    width: 39vw;
 
     font-family: "SE-Pro", sans-serif;
     font-optical-sizing: auto;
@@ -40,7 +40,7 @@
   }
   .modal img{
     height: 200px;
-    width: 160ox;
+    width: 150ox;
     padding-bottom: 10px;
   }
   .modal-container{
@@ -62,11 +62,10 @@
   .modal-short{
     display: flex;
     flex-direction: column;
-    padding: 30px 0;
+    padding-top: 30px;
     width: 100%;
   }
   .modal p{
-    padding: 2px 0;
     text-align: start;
   }
 
@@ -90,24 +89,13 @@
   .profile-container{
     display: flex;
     flex-direction: row;
-    
   }
   .profile-type{
     width: 16%;
     color: #bbb;
     font-weight: 800;
   }
-  .profile-content{
-   width: 80%;
-  }
-  .profile-hr{
-    margin-top: 2px;
-    display: flex;
-    background-color: #eee;
-    height: 1px;
-    border: none;
-    width: 100%;
-  }
+
   .profile-card{
     display: flex;
     width: 100%;
@@ -115,11 +103,15 @@
   
   }
   .profile-card-left{
-    width: 55vw;
+    width: 52vw;
   }
   .profile-card-right{
-    width: 45vw;
-    margin-left: 6%;
+    width: 48vw;
+    margin-left: 5%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .profile-PR{
     line-height: 25px;
