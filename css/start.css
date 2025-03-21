@@ -1,32 +1,55 @@
-h1, .description-title {
-  font-size: clamp(30px, 2.5vw, 40px);
+h1, .description-title{
+  font-size: clamp(30px, 2.5vw, 45px);
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  
 }
 
-h2 {
-  font-size: clamp(16px, 2vw, 22px);
+h2{
+  font-size: clamp(16px, 2vw, 24px);
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
 p, .description-text, li, button, .floating-item {
-  font-size: clamp(9px, 1.2vw, 12px);
+  font-size: clamp(11px, 1.2vw, 14px);
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+li{
+  font-size: clamp(13px, 1.2vw, 15px);
 }
 
 .small, .description-type, .modal-type {
-  font-size: clamp(9px, 1.2vw, 12px);
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 
-
-@import url('https://fonts.googleapis.com/css2?family=Diphylleia&family=Figtree:ital,wght@0,300..900;1,300..900&family=Orbit&display=swap');
 * {
-  cursor: none !important;
   margin: 0;
   padding: 0;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-use-select: none;
   user-select: none;
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  }
   
-}
 body {
+    cursor: none !important;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
@@ -44,10 +67,12 @@ header {
   background-color: #fff;
   
 }
+.nav-box{
+  display: flex;
+}
 nav {
-    width: 22vw;
     padding: 15px 0;
-    background-color: #f9f9f9b6;
+    background-color: #eeeeee9e;
     border-radius: 50px;
     backdrop-filter: blur(4px);
 
@@ -61,21 +86,37 @@ nav ul {
     padding: 0 10px
 }
 nav ul li a {
-    color: black;
+    color: #000;
     text-decoration: none;
-    font-family: "SE-Pro", sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
 }
 nav ul li{
-  padding: 0 20px;
+  width: 8vw;
+  text-align: center;
 }
 nav ul li a:hover {
-  font-weight: 900;
+  font-weight: 600;
 }
 nav ul li a.active {
-  font-weight: 900;
+  font-weight: 600;
+}
+.logo-box{
+  position: absolute;
+  left: 70px;
+  display: flex;
+}
+.logo-box img{
+  display: flex;
+  align-items: center;
+  height: 17px;
+  margin: 0 15px;
+  font-size: clamp(16px, 2vw, 22px);
+}
+#F5:focus {
+  outline: none;
 }
 section {
     display: flex;
@@ -117,8 +158,6 @@ section {
     padding: 20px;
     margin: 0 20px;
     line-height: 20pt;
-    font-family: "SE-Pro", sans-serif;
-    font-style: normal;
     box-shadow: 1px 1px 6px rgba(86, 86, 86, 0.155);
     transition: transform 1.5s ease-in-out;
     text-decoration-line: none;
@@ -132,10 +171,6 @@ section {
  .project_title{
     display: flex;
     flex-direction: column;
-    font-family: "SE-Pro", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
     padding-bottom: 5px;
   }
   .project_img{
@@ -146,7 +181,7 @@ section {
     padding-bottom: 5px;
   }
   .project_detail{
-    color: #666;
+    color: #777;
     padding-top: 15px;
     padding-bottom: 10px;
     line-height: 140%;
@@ -162,63 +197,45 @@ section {
   background-color: #fff;
   position: relative;
   overflow: hidden;
+  display: flex;
+  
+  
 
 }
+
+canvas {
+  width: 650px;  /* 고정된 너비 */
+  height: 950px; /* 고정된 높이 */
+  display: block;
+}
+
 #falling-container {
-  width: 100vw;
-  height: 60vh;
-  overflow: hidden;
+  width: 650px;  /* 고정된 너비 */
+  height: 950px; /* 고정된 높이 */
+  position: relative;
+
+}
+#falling-container img{
+  margin: 20px;
 }
 
-.falling-text {
-  position: absolute;
-  padding: 10px;
-  color: #33333300;
-  text-align: center;
-  background-color: #ffffffc8;
-  backdrop-filter: blur(3px);
-  border-radius: 5px;
-  box-shadow: 2px 1px 5px rgba(34, 34, 34, 0.13); /* 미세한 그림자 */
-  -webkit-user-select: none;
- -moz-user-select: none;
- -ms-use-select: none;
- user-select: none;
-}
-
-.hi_h1{
-  margin-top: 20vh;
-  font-family: "SE-Pro", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
 .small{
-  font-family: "SE-Pro", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  color: #ccc;
+  color: #bbb;
   z-index: 3;
 
 }
 
 .description-type {
   margin: 0 0 10px 0;
-  font-family: "SE-Pro", sans-serif;
-  font-weight: 600;
-  font-style: normal;
+  color: #bbb;
 }
 .description-title {
   color: #000;
   margin-bottom: 45vh;
-  font-family: "SE-Pro", sans-serif;
-  font-weight: 800;
-  font-style: normal;
 }
 
 .description-text {
   text-align: justify;
-  font-family: "SE-Pro", sans-serif;
-  font-weight: 400;
-  font-style: normal;
   text-align: end;
   line-height: 20pt;
 }
@@ -246,19 +263,14 @@ section {
   -moz-user-select: none;
   -ms-use-select: none;
   user-select: none;
-  font-family: "SE-Pro", sans-serif;
   font-weight: 400;
-  font-style: normal;
 }
 
 .hi-info {
-  width: 87vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
   position: absolute;
-  bottom: 10vh;
+  left: 70px;
+  bottom: 5vh;
+  display: flex;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-use-select: none;
@@ -266,9 +278,7 @@ section {
 }
 .hi-info-left{
 
-  font-family: "SE-Pro", sans-serif;
   font-weight: 400;
-  font-style: normal;
 }
 .hi-info-left span{
   padding-left: 5px;
