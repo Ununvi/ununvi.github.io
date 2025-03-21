@@ -1,113 +1,152 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const { Engine, Render, Runner, Bodies, World, Events } = Matter;
+const { Engine, Render, Runner, World, Bodies, Mouse, MouseConstraint } = Matter;
 
-  // 물리 엔진 생성
-  const engine = Engine.create();
-  const world = engine.world;
+// 엔진 설정
+const engine = Engine.create();
+const { world } = engine;
 
-  // 렌더링 설정
-  const container = document.getElementById("falling-container");
-  const render = Render.create({
-      element: container,
-      engine: engine,
-      options: {
-          width: window.innerWidth,
-          height: window.innerHeight,
-          wireframes: false,
-          background: "transparent"
-      }
-  });
+// 컨테이너 크기
+const container = document.getElementById('falling-container');
+const containerWidth = container.clientWidth;
+const containerHeight = container.clientHeight;
 
-  // 렌더 실행
-  Render.run(render);
-  const runner = Runner.create();
-  Runner.run(runner, engine);
+// 렌더링 설정
+const render = Render.create({
+    element: container,
+    engine: engine,
+    options: {
+        width: containerWidth,
+        height: containerHeight,
+        wireframes: false,
+        background: null // 배경을 삭제 (투명하게 설정)
+    }
+});
 
-  // 바닥 추가
-  const ground = Bodies.rectangle(window.innerWidth / 2, window.innerHeight - 50, window.innerWidth, 20, {
-      isStatic: true,
-      render: { fillStyle: "#ffffff00" }
-  });
-  World.add(world, ground);
+Render.run(render);
+Runner.run(Runner.create(), engine);
 
-  // 텍스트를 물리적 객체처럼 추가하는 함수
-  function createFallingText(text) {
-      const baseX = window.innerWidth / 2;
-      const randomOffset = (Math.random() - 0.5) * 100;
-      const xPosition = baseX + randomOffset;
+// 바닥 추가 (배경 투명하게 설정)
+const ground = Bodies.rectangle(containerWidth / 2, containerHeight - 20, containerWidth, 40, {
+    isStatic: true,
+    render: {
+        fillStyle: 'transparent'  // 바닥의 배경을 투명하게 설정
+    }
+});
+World.add(world, ground);
 
-      // 텍스트를 표시할 div 생성
-      const textElement = document.createElement('div');
-      textElement.textContent = text;
-      textElement.classList.add('falling-text');  // 클래스 추가하여 스타일 적용
-      textElement.style.left = `${xPosition}px`;
-      container.appendChild(textElement);
+// 컨테이너 벽 추가 (배경 투명하게 설정)
+const leftWall = Bodies.rectangle(0, containerHeight / 2, 20, containerHeight, {
+    isStatic: true,
+    render: {
+        fillStyle: 'transparent'  // 왼쪽 벽을 투명하게 설정
+    }
+});
+const rightWall = Bodies.rectangle(containerWidth, containerHeight / 2, 20, containerHeight, {
+    isStatic: true,
+    render: {
+        fillStyle: 'transparent'  // 오른쪽 벽을 투명하게 설정
+    }
+});
+World.add(world, leftWall);
+World.add(world, rightWall);
 
-      // 물리 객체의 가로 사이즈를 텍스트보다 작게 설정
-      const textWidth = text.length * 20;
-      const bodyWidth = textWidth * 0.7; // 텍스트 가로 길이의 80%로 물리 객체의 가로 길이 설정
+// 블록 이미지 목록
+const blockImages = [
+    './img/book01.png',
+    './img/book02.png',
+    './img/book03.png',
+    './img/book04.png',
+    './img/book05.png',
+    './img/book06.png',
+    './img/book07.png',
+    './img/book08.png',
+    './img/book09.png'
+];
 
-      // 텍스트와 물리 객체 연결
-      const textBody = Bodies.rectangle(xPosition, 50, bodyWidth, 40, {
-          restitution: 0.4,
-          friction: 0.5,
-          density: 0.002,
-          isStatic: false,
-          angle: 0, // 회전하지 않도록 설정
-          render: { fillStyle: "transparent" } // 물리 객체의 배경을 투명하게 설정
-      });
+// 이미지 크기와 비율을 저장할 배열
+const imageDimensions = [];
 
-      // 수평으로만 떨어지게 하기 위해 velocity 설정
-      Matter.Body.setVelocity(textBody, { x: 0, y: 5 }); // y축 방향으로만 떨어지게 설정
+// 각 이미지의 원본 크기를 가져와 비율을 계산
+const loadImageDimensions = () => {
+    return new Promise((resolve) => {
+        const promises = blockImages.map(src => {
+            return new Promise((resolveImage) => {
+                const img = new Image();
+                img.src = src;
+                img.onload = () => {
+                    imageDimensions.push({
+                        width: img.width,
+                        height: img.height,
+                        ratio: img.height / img.width // 원본 비율 계산
+                    });
+                    resolveImage();
+                };
+            });
+        });
 
-      World.add(world, textBody);
+        Promise.all(promises).then(resolve);
+    });
+};
 
-      // 물리 엔진과 HTML 텍스트 동기화
-      Matter.Events.on(engine, 'beforeUpdate', () => {
-          // 물리 객체의 위치와 회전 값을 가져와서 텍스트 요소에 반영
-          textElement.style.left = `${textBody.position.x - textWidth / 2}px`;  // x 위치 업데이트
-          textElement.style.top = `${textBody.position.y - 20}px`;  // y 위치 업데이트
+// 생성된 블록 수 추적
+let blockCount = 0;
+let currentY = 0; // 블록들이 쌓일 y 값
 
-          // 회전값을 텍스트에 반영하여 텍스트도 회전하도록 설정
-          textElement.style.transform = `rotate(${textBody.angle}rad)`;
-      });
+// 블록 생성 함수
+function createBlock(x, y) {
+    if (blockCount < 9) { // 블록은 최대 8개만 생성
+        const imageIndex = blockCount % blockImages.length; // 이미지 순환
+        const imgDim = imageDimensions[imageIndex];  // 현재 블록의 이미지 크기 정보
+        const blockWidth = imgDim.width; // 이미지의 실제 너비
+        const blockHeight = imgDim.height + 1; // 세로 크기를 15px 키움
 
-      // 드래그 기능 추가 (마우스 이벤트로 조작 가능하게)
-      textElement.addEventListener('mousedown', (e) => {
-          const offsetX = e.clientX - textBody.position.x;
-          const offsetY = e.clientY - textBody.position.y;
+        // 무게 조정 (0.1에서 0.05로 감소)
+        const density = Math.max(0.05, (9 - blockCount) * 0.02); // 0.05 이하로는 안 내려가게 설정
 
-          function mouseMoveHandler(e) {
-              // 물리 객체의 위치를 마우스에 맞춰 이동
-              Matter.Body.setPosition(textBody, {
-                  x: e.clientX - offsetX,
-                  y: e.clientY - offsetY
-              });
-          }
+        const block = Bodies.rectangle(x, y, blockWidth, blockHeight, {
+            density: density,
+            restitution: 0.05,  // 반동을 조금 더 높여서 물리적으로 더 안정적
+            friction: 0.2,      // 마찰을 적당히 설정 (블록이 너무 미끄러지지 않도록)
+            frictionAir: 0.01,  // 공기 저항을 적당히 설정 (블록이 너무 미끄러지지 않도록)
+            render: {
+                sprite: {
+                    texture: blockImages[imageIndex],
+                    xScale: 1,  // 크기 조정
+                    yScale: 1
+                }
+            }
+        });
 
-          // 마우스 이동과 종료 이벤트 처리
-          document.addEventListener('mousemove', mouseMoveHandler);
-          document.addEventListener('mouseup', () => {
-              document.removeEventListener('mousemove', mouseMoveHandler);
-          });
-      });
-  }
+        World.add(world, block);
+        blockCount++;
 
-  // IntersectionObserver 설정 (스크롤 시 특정 요소가 보일 때 실행)
-  const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-          if (entry.isIntersecting) {
-              const words = ["0000000000000", "0000000000000", "0000000000000000", "0000000000", "00000000", "0000000000000", "000000", "00000000000000"];
-              words.forEach((word, index) => {
-                  setTimeout(() => {
-                      createFallingText(word);  // 각 단어를 떨어뜨리기
-                  }, index * 300);
-              });
+        // 마진을 추가한 후 다음 블록이 떨어질 위치를 계산
+        currentY += blockHeight; // 블럭의 세로 크기만큼 증가
+    }
+}
 
-              observer.unobserve(entry.target);  // 관찰을 해제하여 중복 실행 방지
-          }
-      });
-  }, { threshold: 0.5 });
+// 마우스 상호작용 설정
+const mouse = Mouse.create(render.canvas);
+const mouseConstraint = MouseConstraint.create(engine, {
+    mouse: mouse,
+    constraint: {
+        stiffness: 0.8, // 마우스 제약 강하게 설정 (더 쉽게 잡을 수 있게)
+        render: { visible: false }
+    }
+});
+World.add(world, mouseConstraint);
 
-  observer.observe(document.querySelector("#hi"));
+// 블록이 떨어지도록 하는 함수
+function dropBlock() {
+    // 블럭이 화면의 중앙 근처에서 랜덤하게 떨어지도록 x 값 조정
+    const x = containerWidth / 2 + (Math.random() - 0.5) * 120; // -100 ~ 100 범위
+    createBlock(x, 0); // y값을 0으로 설정하여 상단에서 생성
+}
+
+// 1초마다 블록을 떨어지게 함
+setInterval(dropBlock, 500);
+
+// 이미지 크기 정보를 로드한 후 블록을 생성하기 시작
+loadImageDimensions().then(() => {
+    // 이미지 정보가 로드되면 첫 번째 블록부터 생성 시작
+    dropBlock();
 });
