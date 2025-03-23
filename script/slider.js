@@ -59,7 +59,8 @@ const blockImages = [
     './img/book06.png',
     './img/book07.png',
     './img/book08.png',
-    './img/book09.png'
+    './img/book09.png',
+    './img/book10.png'
 ];
 
 // 이미지 크기와 비율을 저장할 배열
@@ -93,25 +94,28 @@ let currentY = 0; // 블록들이 쌓일 y 값
 
 // 블록 생성 함수
 function createBlock(x, y) {
-    if (blockCount < 9) { // 블록은 최대 8개만 생성
-        const imageIndex = blockCount % blockImages.length; // 이미지 순환
-        const imgDim = imageDimensions[imageIndex];  // 현재 블록의 이미지 크기 정보
-        const blockWidth = imgDim.width; // 이미지의 실제 너비
-        const blockHeight = imgDim.height + 1; // 세로 크기를 15px 키움
+    if (blockCount < 10) { 
+        const imageIndex = blockCount % blockImages.length; 
+        const imgDim = imageDimensions[imageIndex];  
+        
+        // 블록 크기 축소 (70% 크기로 줄이기)
+        const scaleFactor = 0.3; 
+        const blockWidth = imgDim.width * scaleFactor;
+        const blockHeight = imgDim.height * scaleFactor;
 
-        // 무게 조정 (0.1에서 0.05로 감소)
-        const density = Math.max(0.05, (9 - blockCount) * 0.02); // 0.05 이하로는 안 내려가게 설정
+        // 밀도 조정 (무게 가벼워짐)
+        const density = Math.max(0.05, (10 - blockCount) * 0.01); 
 
         const block = Bodies.rectangle(x, y, blockWidth, blockHeight, {
             density: density,
-            restitution: 0.05,  // 반동을 조금 더 높여서 물리적으로 더 안정적
-            friction: 0.2,      // 마찰을 적당히 설정 (블록이 너무 미끄러지지 않도록)
-            frictionAir: 0.01,  // 공기 저항을 적당히 설정 (블록이 너무 미끄러지지 않도록)
+            restitution: 0.05,  
+            friction: 0.2,      
+            frictionAir: 0.01,  
             render: {
                 sprite: {
                     texture: blockImages[imageIndex],
-                    xScale: 1,  // 크기 조정
-                    yScale: 1
+                    xScale: scaleFactor,  // 크기 조정
+                    yScale: scaleFactor
                 }
             }
         });
@@ -119,8 +123,8 @@ function createBlock(x, y) {
         World.add(world, block);
         blockCount++;
 
-        // 마진을 추가한 후 다음 블록이 떨어질 위치를 계산
-        currentY += blockHeight; // 블럭의 세로 크기만큼 증가
+        // 다음 블록 위치 조정
+        currentY += blockHeight; 
     }
 }
 
