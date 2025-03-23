@@ -19,7 +19,7 @@
     transform: translate(15%, -50%);
     background: white;
     border-radius: 10px;
-    padding: 35px;
+    padding: 45px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 995;
     transition: left 0.3s ease-in-out;
@@ -107,7 +107,7 @@
   }
   .profile-card-right{
     width: 48vw;
-    margin-left: 5%;
+    margin-left: 6%;
     display: flex;
     align-items: flex-end;
     flex-direction: column;
