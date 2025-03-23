@@ -103,6 +103,12 @@ nav ul li a:hover {
 nav ul li a.active {
   font-weight: 600;
 }
+#F5{
+  padding: 19px 5px;
+  background-color: #eeeeee9e;
+  border-radius: 50px;
+  backdrop-filter: blur(4px);
+}
 .logo-box{
   position: absolute;
   left: 70px;
