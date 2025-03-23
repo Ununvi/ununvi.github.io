@@ -213,13 +213,13 @@ section {
 
 canvas {
   width: 800px;  /* 고정된 너비 */
-  height: 850px; /* 고정된 높이 */
+  height: 900px; /* 고정된 높이 */
   display: block;
 }
 
 #falling-container {
   width: 800px;  /* 고정된 너비 */
-  height: 850px; /* 고정된 높이 */
+  height: 900px; /* 고정된 높이 */
   position: relative;
 
 }
