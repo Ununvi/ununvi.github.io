@@ -5,12 +5,13 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 994;
+  background: rgba(0, 0, 0, 0.7); /* 반투명 검정색 배경 */
+  z-index: 994; /* 모달보다 아래에 위치 */
   transition: opacity 0.3s ease-in-out;
   opacity: 0;
 }
 
+/* 오버레이가 표시될 때 */
 .overlay.active {
   display: block;
   opacity: 1;
@@ -87,7 +88,7 @@
   width: 100%;
   height: 600px;
   flex-direction: row;
-  padding-bottom: 30px
+  padding-bottom: 15px;
 }
 
 .page {
@@ -111,7 +112,6 @@
 .modal-footer {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
 }
 
 .next-btn, .prev-btn {
