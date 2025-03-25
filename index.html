@@ -41,10 +41,10 @@
         navLinks.forEach((link, index) => {
             if (index === activeIndex) {
                 link.textContent = link.getAttribute("data-scroll");
-                link.classList.add("active");
+                link.classList.add("active"); // 활성화된 메뉴 항목에 'active' 클래스 추가
             } else {
                 link.textContent = link.getAttribute("data-default");
-                link.classList.remove("active");
+                link.classList.remove("active"); // 비활성화된 메뉴 항목에서 'active' 클래스 제거
             }
         });
     };
@@ -59,6 +59,7 @@
         updateNavText(index);
     };
 
+    // 마우스 휠 이벤트로 슬라이드 전환
     document.addEventListener("wheel", (event) => {
         if (isScrolling) return;
         isScrolling = true;
@@ -76,6 +77,7 @@
         }, 800);
     });
 
+    // 네비게이션 메뉴 이벤트 설정
     navLinks.forEach((link, index) => {
         link.setAttribute("data-default", link.textContent);
 
@@ -96,8 +98,10 @@
         });
     });
 
+    // 초기 네비게이션 텍스트 설정
     updateNavText(currentIndex);
 
+    // Intersection Observer를 이용한 섹션 진입 감지
     const observerOptions = {
         threshold: 0.5
     };
@@ -120,6 +124,7 @@
         observer.observe(section);
     });
 
+    // 커서 애니메이션 설정
     document.addEventListener('mousemove', (e) => {
         requestAnimationFrame(() => {
             cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
@@ -152,7 +157,7 @@
             </ul>
         </nav>
     </header>
-    <section id="hi" class="full-page">
+    <section id="hi" class="full-page"> <!--hi👋-->
         <div id="falling-container"></div>
         <script src="https://cdn.jsdelivr.net/npm/matter-js@0.18.0/build/matter.min.js"></script>
 
@@ -167,9 +172,9 @@
                 <div class="profile-card">
                     <!-- 첫 번째 장 -->
                     <div class="page">
-                        <div class="modal-img"><img src="./img/itsme.png" alt="Profile"></div>
+                        <div class="modal-img"><img src="./img/itsme01.png" alt="Profile"></div>
                         <div class="modal-container">
-                            <h1>김유빈<p style="color: #000; font-weight: 800; font-size: 18px;">&nbsp;&nbsp;&nbsp;KIMYUBIN</p></h1>
+                            <h1>김유빈<p style="color: #000; font-weight: 800; font-size: 18px;">&nbsp;&nbsp;KIMYUBIN</p></h1>
                             <div class="modal-short">
                                 <p class="modal-subtitle">Profile</p>
                                 <div class="profile-container"><p class="profile-content">2002.04.14</p></div>
@@ -190,9 +195,7 @@
                     <div class="page" id="page-2nd">
                         <p class="modal-subtitle">Career Goal</p>
                         <p class="profile-PR">
-                            저는 의외성이 반영된 디자인을 선호합니다. 의외성은 사람들에게 한 번 더 시선을 머물게 하고, 새로운 시각을 갖도록 유도합니다. 나아가 기존의 관념에서 벗어나 보다 나은 방향을 모색할 계기를 마련하기도 합니다. 단순히 미적인 요소를 고려하는 것이 아니라, 예상 밖의 인터랙션과 창의적인 디자인을 통해 사용자에게 깊은 인상을 남기고, 브랜드와의 유대감을 형성하는 것을 목표로 하고 있습니다.<br><br>
-                            글림이 지향하는 창의적인 UX 인터랙션 디자인이 저의 디자인 철학과 맞닿아 있기에, 저는 이곳에서 더욱 의미 있는 경험을 만들고 싶습니다.<br><br>
-                            사용자가 직관적으로 이해하면서도, 한 번 더 머물고 싶어지는 경험을 만들기 위해 고민하는 디자이너가 되겠습니다. 글림과 함께 새로운 가능성을 탐색하며, 브랜드와 사용자를 더욱 긴밀하게 연결하는 인터랙션을 설계해 나가고 싶습니다.
+                            저는 의외성(意外性)이 반영된 디자인을 선호합니다. 의외성은 사람들에게 한 번 더 시선을 머물게 하고, 새로운 시각을 갖도록 유도합니다. 나아가 기존의 관념에서 벗어나 보다 나은 방향을 모색할 계기를 마련하기도 합니다.<br><br>웹 페이지에서 의외성을 효과적으로 구현하는 방법 중 하나는 인터랙션입니다. 정적인 디자인에 동적인 요소를 가미하면 사용자는 예상치 못한 신선한 경험을 하게 됩니다. 이는 몰입감을 높이고 탐색 욕구를 자극하는 데 기여하며, 궁극적으로 브랜드에 대한 긍정적인 이미지를 형성하는 데 도움을 줍니다.<br><br>저는 디자인과 상호작용하며 새로운 경험을 할 수 있도록 돕는 디자이너가 되고 싶습니다. 익숙한 틀을 벗어난 의외성은 단순한 시각적 변화를 넘어, 사람들의 사고방식과 감각을 깨우는 강력한 도구가 될 수 있습니다.<br><br>이러한 요소를 적절히 활용하여 몰입감 있는 경험을 설계하고, 브랜드와 사용자 사이의 의미 있는 연결을 만들어가는 디자이너가 되고자 합니다.
                         </p>
                     </div>
                 </div>
@@ -209,7 +212,7 @@
     
     <section id="index" class="full-page">
         <div class="project">
-            <a href="https://www.figma.com/proto/yRUM6leAodgPbjvaNKkajA/UXUI-Design?node-id=655-2264&t=hGJDMWstQEp02Um5-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=655%3A2264" class="project_card" target="_blank">
+            <a href="https://www.behance.net/gallery/222247761/UXUI-Mobile-App" class="project_card" target="_blank">
                 <div class="project_title_category">
                     <p class="small">App</p>
                 </div>
@@ -219,7 +222,7 @@
                 </div>
                 <p class="project_detail">‘아하’는 예민한(HSP) 기질을 선천적인 특성로 이해하며, 이를 긍정적으로 활용할 수 있는 다양한 방법을 제안합니다. 직관적인 정보와 실용적인 가이드를 통해 자기 이해를 돕고, 일회성 서비스가 아닌 일상과 함께하는 ‘반려’의 역할로 사용자의 삶의 질 향상에 집중합니다.</p>
             </a>
-            <a href="https://www.figma.com/proto/qi50btyVmX0Pe6LIm6d7Bh/Web-Renewal-Design?node-id=466-4705&t=7sWSlqupquGHRnUt-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=466%3A4705" class="project_card" target="_blank">
+            <a href="https://www.behance.net/gallery/222256797/UXUI-Renewal-Web" class="project_card" target="_blank">
                 <div class="project_title_category">
                     <p class="small">Web</p>
                 </div>
@@ -229,7 +232,7 @@
                 </div>
                 <p class="project_detail">동구밭의 브랜드 철학을 더욱 효과적으로 전달해 더 많은 사람들이 동구밭의 가치에 공감하고 제품을 쉽게 접할 수 있도록 하는 것을 목표로, 소비자와의 정서적 연결을 강화하고 접근성과 사용성을 개선하여 제품의 구매 전환율을 증가시키는 것을 지향하며 제작했습니다.</p>
             </a>
-            <a href="https://www.figma.com/proto/E1nqYcU5kveHks5O2DKOgw/Detail-Page?node-id=202-1380&t=gGMZ6ULoKchyNNmu-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=202%3A1380" target="_blank" class="project_card">
+            <a href="https://www.behance.net/gallery/222253225/Supul-Detail-Page" target="_blank" class="project_card">
                 <div class="project_title_category">
                     <p class="small">Detail Page</p>
                 </div>
