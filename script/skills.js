@@ -1,7 +1,6 @@
 const items = document.querySelectorAll(".floating-item");
 const descriptionBox = document.getElementById("description");
 
-// 설명 내용들 (각 설명에 CSS 클래스 추가)
 const descriptions = {
     1: "<div class='description-type'>Design</div><div class='description-title'>Photoshop</div><div class='description-type'>Strength</div><div class='description-text'>색감 보정, 합성<br>사진 편집, 영상 편집<br>스크린 디자인, 그래픽</div>",
     2: "<div class='description-type'>Design</div><div class='description-title'>Illustrator</div><div class='description-type'>Strength</div><div class='description-text'>로고, 아이콘<br>타이포그래피<br>일러스트레이션</div>",
@@ -13,7 +12,6 @@ const descriptions = {
     8: "<div class='description-type'>script language</div><div class='description-title'>JavaScript</div><div class='description-type'>Strength</div><div class='description-text'>이벤트 처리, 사용자 입력 처리<br>애니메이션, 인터랙션, 로컬 저장<br>객체 조작, 반응형 웹 사이트 구현</div>"
 };
 
-// ✅ 요소들의 개별 위치 설정
 const positions = [
     { top: "30%", left: "10%" },
     { top: "30%", left: "40%" },
@@ -26,17 +24,14 @@ const positions = [
 ];
 
 items.forEach((item, index) => {
-    // ✅ 각 요소를 지정된 위치로 배치
     item.style.top = positions[index].top;
     item.style.left = positions[index].left;
 
-    // ✅ 애니메이션 속도를 랜덤하게 변경
-    const duration = Math.random() * 3 + 2; // 2~5초 사이의 랜덤 속도
+    const duration = Math.random() * 3 + 2;
     item.style.animationDuration = `${duration}s`;
 
-    // ✅ 클릭하면 설명 변경
     item.addEventListener("click", () => {
-        const descriptionText = descriptions[index + 1]; // descriptions 객체에서 클릭된 항목에 해당하는 설명을 가져옴
-        descriptionBox.innerHTML = descriptionText; // innerHTML을 사용하여 <br> 태그와 클래스 적용
+        const descriptionText = descriptions[index + 1];
+        descriptionBox.innerHTML = descriptionText;
     });
 });
