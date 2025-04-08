@@ -37,6 +37,7 @@
     let currentIndex = 0;
     let isScrolling = false;
 
+
     const updateNavText = (activeIndex) => {
         navLinks.forEach((link, index) => {
             if (index === activeIndex) {
@@ -49,7 +50,6 @@
         });
     };
 
-
     const scrollToSection = (index) => {
         const section = sections[index];
         window.scrollTo({
@@ -58,7 +58,6 @@
         });
         updateNavText(index);
     };
-
 
     document.addEventListener("wheel", (event) => {
         if (isScrolling) return;
@@ -76,7 +75,6 @@
             isScrolling = false;
         }, 800);
     });
-
 
     navLinks.forEach((link, index) => {
         link.setAttribute("data-default", link.textContent);
@@ -98,9 +96,7 @@
         });
     });
 
-
     updateNavText(currentIndex);
-
 
     const observerOptions = {
         threshold: 0.5
@@ -124,7 +120,6 @@
         observer.observe(section);
     });
 
-    // 커서 애니메이션
     document.addEventListener('mousemove', (e) => {
         requestAnimationFrame(() => {
             cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
@@ -142,7 +137,6 @@
 });
 
     </script>
-    
 </head>
 <body>
 
