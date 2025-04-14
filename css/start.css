@@ -54,12 +54,9 @@ body {
     scroll-behavior: smooth;
 }
 header {
-  display: flex;
-  justify-content: center;
-    margin-top: 3vh;
+    margin-top: 4vh;
     position: fixed;
-    width: 100%;
-    padding: 10px 0;
+    width: 100vw;
     color: black;
     z-index: 993;
 }
@@ -67,15 +64,10 @@ header {
   background-color: #fff;
   
 }
-.nav-box{
-  display: flex;
-}
 nav {
-    padding: 15px 0;
-    background-color: #eeeeee9e;
-    border-radius: 50px;
-    backdrop-filter: blur(4px);
-
+  display: flex;
+  padding: 0 70px;
+  justify-content: space-between;
 }
 nav ul {
     display: flex;
@@ -83,10 +75,9 @@ nav ul {
     align-items: center;
     justify-content: space-evenly;
     list-style: none;
-    padding: 0 10px
 }
 nav ul li a {
-    color: #000;
+    color: #fff;
     text-decoration: none;
     font-family: "Noto Sans KR", sans-serif;
     font-optical-sizing: auto;
@@ -94,8 +85,12 @@ nav ul li a {
     font-style: normal;
 }
 nav ul li{
-  width: 8vw;
+  margin: 0 20px;
+  padding: 15px 50px;
   text-align: center;
+  background-color: #000000dc;
+  border-radius: 50px;
+  backdrop-filter: blur(4px);
 }
 nav ul li a:hover {
   font-weight: 600;
@@ -105,13 +100,11 @@ nav ul li a.active {
 }
 #F5{
   padding: 19px 5px;
-  background-color: #eeeeee9e;
+  background-color: #000000dc;
   border-radius: 50px;
   backdrop-filter: blur(4px);
 }
 .logo-box{
-  position: absolute;
-  left: 70px;
   display: flex;
 }
 .logo-box img{
@@ -136,7 +129,6 @@ section {
   height: 100vh;
   opacity: 1;
 }
-
 .cursor {
   width: 1.2vw;
   height: 1.2vw;
@@ -150,56 +142,72 @@ section {
   transition: transform 0.1s ease-out;
   z-index: 999;
 }
-  .project{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 100px;
-    padding: 0 120px;
-    border-radius: 15px;
-  }
-  .project_card{
-    width: 25vw;
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 0;
-    margin: 0 20px;
-    line-height: 20pt;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    transition: transform 1.5s ease-in-out;
-    text-decoration-line: none;
-    color: #000;
-    
-  }
-  .project_card.animate-up {
-    transform: translateY(-20px);
+.project {
+  display: flex;
+  gap: 16px;
+  margin-top: 70px;
+  padding: 10px 120px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  touch-action: pan-x;
+}
+.project_card {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  background: #000;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+.project_img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
- .project_title{
-    display: flex;
-    flex-direction: column;
-    padding: 20px 0 30px 0;
-  }
-  .project_img{
-    width: 100%;
-    border-radius: 10px 10px 0 0;
+.project_info {
+  padding: 20px;
+}
+
+@media (max-width: 1000px) {
+  .project {
+    overflow-x: auto;
+    padding: 15px;
   }
 
+  .project_card {
+    flex: 0 0 100%;
+  }
+
+  .project::-webkit-scrollbar {
+    display: none;
+  }
+
+  .project {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
   .project .small{
     display: flex;
     align-items: center;
-    color: #bbb;
-  }
-  .project_info{
-    margin: 20px;
+    color: #0852FF;
+    padding-bottom: 10px;
   }
   .project_detail{
-    color: #666;
-    padding-bottom: 10px;
+    color: #fff;
+    padding: 10px 0;
     line-height: 150%;
     text-align: justify;
   }
-
+  .project_title{
+    color: #fff;
+  }
 #hi {
   width: 100vw;
   height: 100vh;
@@ -211,20 +219,17 @@ section {
   position: relative;
   overflow: hidden;
   display: flex;
-  
-  
 
 }
 
-canvas {
-  width: 800px;  /* 고정된 너비 */
-  height: 900px; /* 고정된 높이 */
+canvas { /* 고정된 너비 */
   display: block;
 }
 
 #falling-container {
-  width: 800px;  /* 고정된 너비 */
-  height: 900px; /* 고정된 높이 */
+  width: 80vw;
+  height: 80vw;
+  padding-bottom: 70px;
   position: relative;
 
 }
@@ -236,47 +241,6 @@ canvas {
   color: #bbb;
   z-index: 3;
 
-}
-
-.description-type {
-  margin: 0 0 10px 0;
-  color: #bbb;
-}
-.description-title {
-  color: #000;
-  margin-bottom: 45vh;
-}
-
-.description-text {
-  text-align: justify;
-  text-align: end;
-  line-height: 20pt;
-}
-
-.description-area {
-  width: 30vw;
-  text-align: end;
-}
-.description-right{
-  display: flex;
-  flex-direction: row;
-}
-
-.skills-hr{
-  margin-right: 8vw;
-  width: 1px;
-  height: 70vh;
-  background-color: #000;
-}
-
-.skills-tip {
-  display: flex;
-  justify-content: end;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-use-select: none;
-  user-select: none;
-  font-weight: 400;
 }
 
 .hi-info {
