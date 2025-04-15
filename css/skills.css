@@ -1,3 +1,4 @@
+
 #skills{
   display: flex;
   width: 100vw;
@@ -11,6 +12,7 @@
 
 }
 
+        /* ✅ 왼쪽: 텍스트가 둥둥 떠다니는 영역 */
         .floating-area {
             position: relative;
             width: 80vw;
@@ -54,7 +56,7 @@
             align-items: center;
             align-items: flex-end;
             height: 80vh;
-            padding-right: 70px;
+            padding-right: 90px;
           }
           
           .skills-tip {
@@ -65,12 +67,6 @@
             -ms-use-select: none;
             user-select: none;
             font-weight: 400;
-          }
-        .floating-line {
-            border: none;
-            height: 1px;
-            background-color: #ababab;
-            transform: rotate(var(--line-rotation)) translate(0px, 0px);
           }
 
           .floating-item {
@@ -86,6 +82,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            border-radius: 50px;
+        }
+        .floating-item.selected {
+          background-color: #0852FF;
         }
         @keyframes floatAnimation {
             0% {
