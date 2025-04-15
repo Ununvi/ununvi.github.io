@@ -25,29 +25,18 @@
         }
     </style>
     <script>
-    window.addEventListener("load", () => {
-    const style = document.createElement("style");
-    style.innerHTML = `* { cursor: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAwAB/ep1+EoAAAAASUVORK5CYII='), auto !important; }`;
-    document.head.appendChild(style);
-});
-   document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll(".full-page");
+    const navItems = document.querySelectorAll("nav ul li");
     const navLinks = document.querySelectorAll("nav ul li a");
     const cursor = document.querySelector(".cursor");
 
     let currentIndex = 0;
     let isScrolling = false;
 
-
-    const updateNavText = (activeIndex) => {
-        navLinks.forEach((link, index) => {
-            if (index === activeIndex) {
-                link.textContent = link.getAttribute("data-scroll");
-                link.classList.add("active");
-            } else {
-                link.textContent = link.getAttribute("data-default");
-                link.classList.remove("active");
-            }
+    const updateActiveNavItem = (activeIndex) => {
+        navItems.forEach((item, index) => {
+            item.classList.toggle("active", index === activeIndex);
         });
     };
 
@@ -57,7 +46,7 @@
             top: section.offsetTop,
             behavior: 'smooth',
         });
-        updateNavText(index);
+        updateActiveNavItem(index);
     };
 
     document.addEventListener("wheel", (event) => {
@@ -78,18 +67,6 @@
     });
 
     navLinks.forEach((link, index) => {
-        link.setAttribute("data-default", link.textContent);
-
-        link.addEventListener("mouseover", function() {
-            this.textContent = this.getAttribute("data-scroll");
-        });
-
-        link.addEventListener("mouseout", function() {
-            if (index !== currentIndex) {
-                this.textContent = this.getAttribute("data-default");
-            }
-        });
-
         link.addEventListener("click", function(event) {
             event.preventDefault();
             currentIndex = index;
@@ -97,7 +74,7 @@
         });
     });
 
-    updateNavText(currentIndex);
+    updateActiveNavItem(currentIndex);
 
     const observerOptions = {
         threshold: 0.5
@@ -134,8 +111,10 @@
     document.addEventListener('mouseup', () => {
         cursor.style.transform = cursor.style.transform.replace(' scale(2)', '');
     });
+
     document.body.style.cursor = 'none';
 });
+
 
     </script>
     
@@ -147,9 +126,9 @@
         <nav>
             <a href="#hi" id="F5" class="logo-box"><img src="./img/home.png"></a>
             <ul>
-                <li><a href="#hi" data-scroll="Hi👋">Hi</a></li>
-                <li><a href="#index" data-scroll="Index📝">Index</a></li>
-                <li><a href="#skills" data-scroll="Skills💻">Skills</a></li>
+                <li><a href="#hi">Hi</a></li>
+                <li><a href="#index">Index</a></li>
+                <li><a href="#skills">Skills</a></li>
             </ul>
         </nav>
     </header>
@@ -210,7 +189,7 @@
             <div class="project_card" data-link="https://www.behance.net/gallery/222247761/UXUI-Mobile-App" >
                 <img class="project_img" src="./img/project01.png" alt="project01" draggable="false" >
                 <div class="project_info">
-                    <p class="small">App</p>
+                    <p class="small"><span>App</span></p>
                 <div class="project_title">
                     <h2>UXUI Design</h2>
                 </div>
@@ -220,7 +199,7 @@
             <div class="project_card"  data-link="https://www.behance.net/gallery/222256797/UXUI-Renewal-Web">
                 <img class="project_img" src="./img/project02.png" alt="project02" draggable="false" >
                 <div class="project_info">
-                    <p class="small">Web</p>
+                    <p class="small"><span>Web</span></p>
                 <div class="project_title">
                     <h2>Web Renewal Design</h2>
                 </div>
@@ -230,7 +209,7 @@
             <div class="project_card"  data-link="https://www.behance.net/gallery/222253225/Supul-Detail-Page">
             <img class="project_img" src="./img/project03.png" alt="project03" draggable="false" >
             <div class="project_info">
-                    <p class="small">Web</p>
+                    <p class="small"><span>Web</span></p>
                 <div class="project_title">
                     <h2>Prodect Detail Design</h2>
                 </div>
@@ -241,14 +220,14 @@
     </section> 
     <section id="skills" class="full-page">
         <div class="floating-area">
-            <p class="floating-item" style="background-color: #0852FF;" data-id="1">Ps</p>
-            <p class="floating-item" style="background-color: #0852FF;" data-id="2">Ai</p>
-            <p class="floating-item" style="background-color: #0852FF;" data-id="3">Xd</p>
-            <p class="floating-item" data-id="4">Dw</p>
-            <p class="floating-item" style="background-color: #0852FF;" data-id="5">Figma</p>
-            <p class="floating-item" data-id="6">Html5</p>
-            <p class="floating-item" data-id="7">Css3</p>
-            <p class="floating-item" data-id="8">Js</p>
+            <p class="floating-item"data-id="1" onclick="selectItem(this)">Ps</p>
+            <p class="floating-item"data-id="2" onclick="selectItem(this)">Ai</p>
+            <p class="floating-item"data-id="3" onclick="selectItem(this)">Xd</p>
+            <p class="floating-item" data-id="4" onclick="selectItem(this)">Dw</p>
+            <p class="floating-item"data-id="5" onclick="selectItem(this)">Figma</p>
+            <p class="floating-item" data-id="6" onclick="selectItem(this)">Html5</p>
+            <p class="floating-item" data-id="7" onclick="selectItem(this)">Css3</p>
+            <p class="floating-item" data-id="8" onclick="selectItem(this)">Js</p>
         </div>
 
     
