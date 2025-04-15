@@ -91,27 +91,35 @@ function createBlock(x, y, index, scale) {
 
     World.add(world, block);
 }
-
-// 블록 위치 정의 (가로 배치, 층별 y 고정)
 function getBlockPositions() {
-    const spacingX = 350; // 블록 간 가로 간격
-    const spacingY = 60; // 층 간 세로 간격
     const centerX = containerWidth / 2;
-    const startY = 200;
+    const centerY = containerHeight / 2;
+
+    const spacingX = containerWidth * 0.08; // 컨테이너 너비의 8%
+    const spacingY = containerHeight * 0.05; // 컨테이너 높이의 5%
+    const startY = containerHeight * 0.2; // 시작 y 위치도 반응형으로
 
     return [
-        { x: centerX - spacingX / 2, y: startY },         // 1번
-        { x: centerX + spacingX / 2, y: startY },         // 2번
-        { x: centerX - spacingX, y: startY + spacingY },  // 3번
-        { x: centerX, y: startY + spacingY },             // 4번
-        { x: centerX + spacingX, y: startY + spacingY },  // 5번
-        { x: centerX - spacingX, y: startY + spacingY*2 },// 6번
-        { x: centerX, y: startY + spacingY*2 },           // 7번
-        { x: centerX + spacingX, y: startY + spacingY*2 },// 8번
-        { x: centerX - spacingX/3, y: startY + spacingY*3}, // 9번
-        { x: centerX + spacingX/2, y: startY + spacingY*3 }  // 10번
+        // 1, 2번 (1층)
+        { x: centerX - spacingX / 2, y: startY },
+        { x: centerX + spacingX / 2, y: startY },
+
+        // 3, 4, 5번 (2층)
+        { x: centerX - spacingX, y: startY + spacingY },
+        { x: centerX, y: startY + spacingY },
+        { x: centerX + spacingX, y: startY + spacingY },
+
+        // 6, 7, 8번 (3층)
+        { x: centerX - spacingX, y: startY + spacingY * 2 },
+        { x: centerX, y: startY + spacingY * 2 },
+        { x: centerX + spacingX, y: startY + spacingY * 2 },
+
+        // 9, 10번 (4층)
+        { x: centerX - spacingX / 2, y: startY + spacingY * 3 },
+        { x: centerX + spacingX / 2, y: startY + spacingY * 3 },
     ];
 }
+
 
 // 블록들 전체 생성
 function createAllBlocks() {
