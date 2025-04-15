@@ -56,7 +56,7 @@
             align-items: center;
             align-items: flex-end;
             height: 80vh;
-            padding-right: 90px;
+            padding-right: 8vw;
           }
           
           .skills-tip {
@@ -77,8 +77,8 @@
             background-color: #000;
             white-space: nowrap;
             animation: floatAnimation 2s ease-in-out infinite alternate;
-            width: 4vw;
-            height: 4vw;
+            width: 3rem;
+            height: 3rem;
             display: flex;
             justify-content: center;
             align-items: center;
