@@ -38,4 +38,8 @@ items.forEach((item, index) => {
     });
 });
 
-
+function selectItem(selectedElement) {
+    const items = document.querySelectorAll('.floating-item');
+    items.forEach(item => item.classList.remove('selected'));
+    selectedElement.classList.add('selected');
+  }
