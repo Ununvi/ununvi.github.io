@@ -12,7 +12,7 @@
 
 }
 
-        /* ✅ 왼쪽: 텍스트가 둥둥 떠다니는 영역 */
+        /* 텍스트가 둥둥 떠다니는 영역 */
         .floating-area {
             position: relative;
             width: 80vw;
