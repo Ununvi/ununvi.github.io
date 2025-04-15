@@ -6,7 +6,6 @@ h1, .description-title{
   font-style: normal;
   
 }
-
 h2{
   font-size: clamp(16px, 2vw, 26px);
   font-family: "Noto Sans KR", sans-serif;
@@ -14,7 +13,6 @@ h2{
   font-weight: 600;
   font-style: normal;
 }
-
 p, .description-text, li, button, .floating-item {
   font-size: clamp(13px, 1.0vw, 15px);
   font-family: "Noto Sans KR", sans-serif;
@@ -22,11 +20,9 @@ p, .description-text, li, button, .floating-item {
   font-weight: 300;
   font-style: normal;
 }
-
 li{
   font-size: clamp(13px, 1.2vw, 15px);
 }
-
 .small, .description-type, .modal-type {
   font-size: clamp(16px, 1.0vw, 18px);
   font-family: "Noto Sans KR", sans-serif;
@@ -34,7 +30,6 @@ li{
   font-weight: 500;
   font-style: normal;
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -46,6 +41,7 @@ li{
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
+  cursor: none !important;
   }
   
 body {
@@ -61,12 +57,14 @@ header {
     z-index: 993;
 }
 #index{
+  width: auto;
+  padding: 0 8vw;
   background-color: #fff;
   
 }
 nav {
   display: flex;
-  padding: 0 70px;
+  padding: 0 6vw;
   justify-content: space-between;
 }
 nav ul {
@@ -78,26 +76,25 @@ nav ul {
 }
 nav ul li a {
     color: #fff;
+    background-color: #000000dc;
+    border-radius: 50px;
+    backdrop-filter: blur(4px);
+    padding: 15px 50px;
     text-decoration: none;
     font-family: "Noto Sans KR", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
-    font-style: normal;
+    font-style: normal
 }
 nav ul li{
   margin: 0 20px;
-  padding: 15px 50px;
-  text-align: center;
-  background-color: #000000dc;
-  border-radius: 50px;
-  backdrop-filter: blur(4px);
 }
-nav ul li.active {
-  background-color: #eee; /* 파란 배경 */
-}
-
 nav ul li.active a {
   color: #000; /* 텍스트 흰색 */
+  background-color: #eee;
+}
+a{
+    cursor: none !important;
 }
 #F5{
   padding: 19px 5px;
@@ -133,19 +130,21 @@ section {
 .cursor {
   width: 1.2vw;
   height: 1.2vw;
-  background-color: rgba(119, 119, 119, 0.778);
+  background-color: #000000bd;
   border-radius: 50%;
   position: fixed;
   top: 0;
   left: 0;
-  pointer-events: none;
+  pointer-events: none !important;
+  cursor: none !important; 
   transform: translate(-50%, -50%);
   transition: transform 0.1s ease-out;
   z-index: 999;
+  
 }
 .project {
   display: flex;
-  gap: 16px;
+  gap: 40px;
   margin-top: 70px;
   padding: 10px 120px;
   scroll-snap-type: x mandatory;
@@ -175,7 +174,7 @@ section {
   padding: 20px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .project {
     overflow-x: auto;
     padding: 15px;
@@ -212,6 +211,21 @@ section {
   .project_title{
     color: #000000;
   }
+  .project_card:hover{
+    background-color: #0852FF;
+
+    span{
+      color: #fff;
+      background-color: #000;
+    }
+    p{
+      color: #fff;
+    }
+    h2{
+      color: #fff;
+    }
+  } 
+
 #hi {
   width: 100vw;
   height: 100vh;
@@ -227,11 +241,11 @@ section {
 }
 
 canvas { /* 고정된 너비 */
-  display: block;
+  display: inline-block;
 }
 
 #falling-container {
-  width: 80vw;
+  width: 70vw;
   height: 80vw;
   padding-bottom: 70px;
   position: relative;
@@ -244,7 +258,7 @@ canvas { /* 고정된 너비 */
 
 .hi-info {
   position: absolute;
-  left: 70px;
+  left: 6vw;
   bottom: 5vh;
   display: flex;
   -webkit-user-select: none;
