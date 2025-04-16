@@ -127,21 +127,32 @@ section {
   height: 100vh;
   opacity: 1;
 }
-.cursor {
-  width: 1.2vw;
-  height: 1.2vw;
-  background-color: #000000bd;
-  border-radius: 50%;
+
+.cursor-dot {
   position: fixed;
   top: 0;
   left: 0;
-  pointer-events: none !important;
-  cursor: none !important; 
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease-out;
-  z-index: 999;
-  
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1000;
 }
+
+/* 팔로우 써클 */
+.cursor-follow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background-color: #000000d3;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999;
+}
+
 .project {
   display: flex;
   gap: 40px;
@@ -157,7 +168,7 @@ section {
   display: flex;
   flex-direction: column;
   min-height: 200px;
-  background: #f1f1f1;
+  background-color: #0852FF;
   border-radius: 12px;
   text-decoration: none;
   color: inherit;
@@ -174,10 +185,11 @@ section {
   padding: 20px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .project {
     overflow-x: auto;
-    padding: 15px;
+    padding: 0px;
+    gap: 30px;
   }
 
   .project_card {
@@ -199,24 +211,24 @@ section {
     padding-bottom: 5px;
   }
   .project .small span{
-    background-color: #0852FF;
+    background-color: #000;
     padding: 0 5px;
   }
   .project_detail{
-    color: #000000;
+    color: #fff;
     padding-top: 20px;
     line-height: 150%;
     text-align: justify;
   }
   .project_title{
-    color: #000000;
+    color: #fff;
   }
   .project_card:hover{
-    background-color: #0852FF;
+    background-color: #000;
 
     span{
       color: #fff;
-      background-color: #000;
+      background-color: #0852FF;
     }
     p{
       color: #fff;
