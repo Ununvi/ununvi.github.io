@@ -4,7 +4,7 @@
   width: 100vw;
   height: 100vh;
   flex-direction: row;
-  background-color: #ffffff00;
+  background-color: #EBEBEB;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-use-select: none;
@@ -12,7 +12,7 @@
 
 }
 
-        /* 텍스트가 둥둥 떠다니는 영역 */
+        /* ✅ 왼쪽: 텍스트가 둥둥 떠다니는 영역 */
         .floating-area {
             position: relative;
             width: 80vw;
@@ -28,7 +28,7 @@
             padding: 0 5px;
           }
           .description-title {
-            color: #eee;
+            color: #DDD;
             margin-bottom: 32vh;
             font-size: 11vw;
           }
@@ -36,7 +36,7 @@
           .description-text {
             text-align: end;
             line-height: 20pt;
-            background-color: #f1f1f1;
+            background-color: #fff;
             padding: 10px;
           }
           
@@ -76,7 +76,7 @@
             color: #fff;
             background-color: #000;
             white-space: nowrap;
-            animation: floatAnimation 2s ease-in-out infinite alternate;
+            animation: floatAnimation 1s ease-in-out infinite alternate;
             width: 3rem;
             height: 3rem;
             display: flex;
@@ -85,14 +85,15 @@
             border-radius: 50px;
         }
         .floating-item.selected {
-          background-color: #0852FF;
+          background-color: #FDFA30;
+          color: #000;
         }
         @keyframes floatAnimation {
             0% {
               transform: translateY(0px);
             }
             100% {
-              transform: translateY(-20px);
+              transform: translateY(-30px);
             }
           }
           
