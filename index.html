@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【hb】 pdp</title>
+    <title>임시</title>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="./hb-option.css" type="text/css" />
@@ -916,46 +916,58 @@
         }
     </script>
     <script>
-        // 상단 탭 클릭 시 해당 섹션으로 스크롤 이동 및 스크롤 위치에 따른 active 상태 동기화
-
         document.addEventListener('DOMContentLoaded', initTabs);
 
         function initTabs() {
             const tabs = document.querySelectorAll('.tab-item');
-            const sections = document.querySelectorAll('.section');
-            const headerOffset = 212;
+            // 감시할 섹션들 (ID 기준)
+            const sectionIds = ['review', 'details', 'qna', 'delivery'];
+            const headerOffset = 220; // 상단 헤더 + 탭 높이 합산 여유값
+            let isScrolling = false; // 클릭 이동 중 스크롤 감지 방지 플래그
 
-            if (!tabs.length || !sections.length) return;
+            if (!tabs.length) return;
 
+            // 1. 클릭 이동 로직
             window.tabMove = function (element, targetId) {
                 const target = document.getElementById(targetId);
                 if (!target) return;
 
+                isScrolling = true; // 자동 스크롤 시작
+
+                // 즉시 탭 활성화
                 tabs.forEach(tab => tab.classList.remove('active'));
                 element.classList.add('active');
 
-                const position =
-                    target.getBoundingClientRect().top +
-                    window.pageYOffset -
-                    headerOffset;
+                const position = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
 
-                window.scrollTo({ top: position, behavior: 'smooth' });
+                window.scrollTo({
+                    top: position,
+                    behavior: 'smooth'
+                });
+
+                // 스크롤 완료 후 플래그 해제 (약 600ms 후)
+                setTimeout(() => { isScrolling = false; }, 600);
             };
 
+            // 2. 스크롤 감지에 따른 탭 활성화 로직
             window.addEventListener('scroll', () => {
-                const scrollPosition = window.scrollY + headerOffset + 10;
+                if (isScrolling) return; // 클릭 이동 중엔 계산 패스
 
-                sections.forEach(section => {
-                    if (
-                        scrollPosition >= section.offsetTop &&
-                        scrollPosition < section.offsetTop + section.offsetHeight
-                    ) {
-                        const id = section.id;
+                const scrollPosition = window.scrollY + headerOffset + 50;
 
+                sectionIds.forEach(id => {
+                    const section = document.getElementById(id);
+                    if (!section) return;
+
+                    const top = section.offsetTop;
+                    const height = section.offsetHeight;
+
+                    if (scrollPosition >= top && scrollPosition < top + height) {
                         tabs.forEach(tab => {
                             tab.classList.remove('active');
-                            if (tab.getAttribute('onclick')?.includes(`'${id}'`)) {
-                                tab.classList.add('active');
+                            // onclick 속성 내에 해당 ID가 포함되어 있는지 확인
+                            if (tab.getAttribute('onclick').includes(`'${id}'`)) {
+                                tab.add('active');
                             }
                         });
                     }
