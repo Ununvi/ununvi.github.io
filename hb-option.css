@@ -1,0 +1,199 @@
+:root {
+    --border-color: #eee;
+    --text-main: #1a1a1a;
+    --bg-gray: #f9f9f9;
+    --naver-green: #03c75a;
+}
+
+
+/* 모바일 대응: 모바일에서는 스크롤 분리 해제 */
+@media screen and (max-width: 1024px) {
+    .shop-container {
+        flex-direction: column;
+    }
+
+    .info-section {
+        position: static;
+        height: auto;
+        overflow-y: visible;
+    }
+}
+
+/* --- 옵션 시스템 스타일 --- */
+.option-label {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.option-select {
+    width: 100%;
+    padding: 10px 8px;
+    border: 0.8px solid rgba(33, 33, 33, 0.48);
+    background: none;
+    font-size: 14px;
+    color: rgba(33, 33, 33, 0.48);
+    font-family: 'Pretendard', sans-serif;
+}
+
+.option-select:active {
+    border: 0.8px solid rgba(33, 33, 33);
+}
+
+/* 선택된 옵션 아이템 박스 */
+#selected-options {
+    margin-top: 8px;
+}
+
+.opt-item {
+    background-color: rgba(33, 33, 33, 0.04);
+    padding: 8px;
+    border-radius: 2px;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.opt-name {
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding-right: 20px;
+}
+
+#opt-remove {
+    font-family: 'Material Symbols Outlined' !important;
+    font-weight: 200;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: 'liga';
+    font-size: 18px;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    cursor: pointer;
+    color: #212121;
+}
+
+.opt-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 수량 조절 버튼 */
+.qty-box {
+    display: flex;
+    border: 1px solid #ddd;
+    background: #fff;
+}
+
+.qty-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.qty-val {
+    width: 40px;
+    text-align: center;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    font-size: 14px;
+    line-height: 30px;
+}
+
+.opt-price {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* 총 합계 */
+.total-area {
+    margin: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.total-label {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.total-price {
+    font-size: 24px;
+    color: #212121;
+    font-weight: 700;
+}
+
+/* --- 결제 CTA 그룹 --- */
+.cta-group {
+    margin: 24px 0 80px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-buy {
+    background: #212121;
+    color: #fff;
+    border: none;
+}
+
+.btn-buy:hover {
+    background: #000;
+    transition: 1s;
+}
+
+.btn-cart {
+    flex: 1;
+    background: none;
+    max-width: 180px;
+    border: solid 0.8px rgba(33, 33, 33, 0.36);
+}
+
+.btn-cart:hover {
+    border: solid 0.8px #000;
+    transition: 1s;
+}
+
+.btn-row {
+    display: flex;
+    gap: 8px;
+}
+
+/* 네이버페이 버튼 스타일 */
+.btn-naver {
+    border: solid 1px var(--naver-green);
+    color: var(--naver-green);
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-naver:hover {
+    background-color: var(--naver-green);
+    color: #FFF;
+    transition: ease-out 0.3s;
+}
+
+.btn-naver img {
+    height: 20px;
+}
+
+/* 스크롤 시 축소 효과 */
+.is-scrolled .hide-on-scroll {
+    display: none;
+}
+
