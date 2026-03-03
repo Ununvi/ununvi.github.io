@@ -90,25 +90,16 @@
 /* 수량 조절 버튼 */
 .qty-box {
     display: flex;
-    border: 1px solid #ddd;
-    background: #fff;
-}
-
-.qty-btn {
-    width: 30px;
-    height: 30px;
-    border: none;
-    background: none;
-    cursor: pointer;
-}
-
-.qty-val {
-    width: 40px;
-    text-align: center;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+    gap: 8px;
+    background-color: #FFF;
     font-size: 14px;
-    line-height: 30px;
+    align-items: center;
+}
+
+.qty-box button {
+    border: 0;
+    background-color: #FFF;
+    padding: 4px 12px;
 }
 
 .opt-price {
@@ -197,3 +188,13 @@
     display: none;
 }
 
+.opt-item-1f {
+    display: flex;
+    justify-content: space-between;
+}
+
+.opt-item-2f {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+}
