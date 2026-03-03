@@ -1031,10 +1031,12 @@
 
                 return `
         <div class="opt-item">
+            <div class="opt-item-1f">
             <div class="opt-name">${item.name}</div>
             <span class="material-symbols-outlined"
                   onclick="removeOption(${index})">close</span>
-            <div class="opt-control">
+            </div>
+            <div class="opt-item-2f">
                 <div class="qty-box">
                     <button onclick="updateQty(${index}, -1)">-</button>
                     <div>${item.qty}</div>
@@ -1053,4 +1055,4 @@
     </script>
 </body>
 
-</html>Ï
+</html>
