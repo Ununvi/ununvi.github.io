@@ -95,7 +95,6 @@
     font-size: 14px;
     align-items: center;
 }
-
 .qty-box button {
     border: 0;
     background-color: #FFF;
@@ -197,4 +196,5 @@
     display: flex;
     justify-content: space-between;
     margin-top: 4px;
+    font-size: 16px;
 }
