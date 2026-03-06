@@ -46,10 +46,20 @@
         .shop-container {
             display: flex;
             max-width: 1424px;
-            margin: 48px auto;
+            margin: 0 auto;
             gap: 80px;
             padding: 0 24px;
             align-items: flex-start;
+        }
+
+        .shop-container-margin-top {
+            /* 상단여백 */
+            width: 100%;
+            height: 80px;
+            background-color: #FAF6EF;
+            position: fixed;
+            top: 105px;
+            z-index: 1;
         }
 
         /* 왼쪽: 상세 이미지 영역 */
@@ -62,19 +72,15 @@
 
         .img-placeholder {
             width: 100%;
-            border-radius: 4px;
         }
 
         /* 오른쪽: 상품 정보 영역 */
         .info-section {
             flex: 0.8;
             position: sticky;
-            /* 하단에서부터의 여백 */
             align-self: stretch;
-            /* 부모 컨테이너의 하단에 정렬 */
             height: auto;
             will-change: transform;
-
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
@@ -107,15 +113,11 @@
             position: sticky;
             top: 330px;
             z-index: 1000;
-            padding-top: 24px;
+            padding-top: 12px;
             background: linear-gradient(180deg, rgba(250, 246, 239, 0.00) 0%, #FAF6EF 5.0%);
-
         }
 
-        view
-
-        /* 크롬, 사파리용 스크롤바 스타일링 (선택사항: 깔끔하게 보이도록) */
-        .info-section::-webkit-scrollbar {
+        view .info-section::-webkit-scrollbar {
             width: 4px;
         }
 
@@ -140,7 +142,7 @@
         .product-name {
             font-size: 22px;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             line-height: 1.3;
         }
 
@@ -149,8 +151,8 @@
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-bottom: 24px;
+            gap: 4px;
+            margin-bottom: 12px;
         }
 
         .original-price {
@@ -161,12 +163,11 @@
         }
 
         .hb-coupon-section {
-            padding: 8px 8px 8px 14px;
+            padding: 8px;
             font-size: 14px;
             background-color: rgba(33, 33, 33, 0.06);
             display: flex;
             justify-content: space-between;
-            border-radius: 4px;
         }
 
         .hb-coupon-section ul {
@@ -187,10 +188,11 @@
         .hb-coupon-section li {
             display: flex;
             align-items: center;
+            gap: 4px;
         }
 
         .hb-coupon-section a {
-            padding: 6px 4px 6px 8px;
+            padding: 4px 5px 4px 8px;
             background-color: #212121;
             color: #fff;
             border-radius: 4px;
@@ -198,9 +200,9 @@
             text-decoration: none;
             align-items: center;
             font-size: 12px;
+
         }
 
-        /* 배송/리뷰 정보 (스크롤 시 숨길 부분) */
         .delivery-info {
             font-size: 14px;
             padding: 15px 0;
@@ -208,18 +210,16 @@
             margin-bottom: 20px;
         }
 
-        /* 옵션 및 구매 영역 */
         .purchase-area {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
-        .btn {
+        .CTA-btn {
             flex: 1;
-            padding: 12px;
-            border-radius: 4px;
-            font-weight: 600;
+            padding: 12px 0;
+            font-weight: 400;
             cursor: pointer;
             font-size: 16px;
             font-family: 'Pretendard', sans-serif;
@@ -236,14 +236,12 @@
             width: 100%;
         }
 
-        /* 메인 뷰 영역 */
         .main-thumbnail-view {
             width: 100%;
             aspect-ratio: 1 / 1;
             /* 정사각형 유지 */
             overflow: hidden;
             background-color: #f1f1f1;
-            border-radius: 4px;
         }
 
         .main-thumbnail-view img {
@@ -253,7 +251,6 @@
             transition: opacity 0.3s ease;
         }
 
-        /* 하단 썸네일 리스트 (앨범 형태) */
         .thumbnail-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
@@ -264,7 +261,6 @@
             aspect-ratio: 1 / 1;
             cursor: pointer;
             border: 0.8px solid transparent;
-            border-radius: 4px;
             overflow: hidden;
             opacity: 0.6;
             transition: all 0.2s ease;
@@ -276,7 +272,6 @@
             object-fit: cover;
         }
 
-        /* 선택된 썸네일 강조 */
         .thumb-item.active {
             border-color: #212121;
             opacity: 1;
@@ -285,12 +280,6 @@
         .thumb-item:hover {
             opacity: 1;
         }
-
-
-
-
-
-
 
         body {
             margin: 0;
@@ -302,18 +291,20 @@
             position: relative;
         }
 
-        .hb-product-container {
+        .hb-product-info-container {
             width: 100%;
             margin: 0 auto;
             padding: 0px;
-            height: 200px;
+            height: 240px;
         }
 
-        /* 공통 아코디언 스타일 */
         .hb-accordion-item {
             border-top: 0.8px solid #212121;
             overflow: hidden;
-            /* 애니메이션을 위해 필수 */
+        }
+
+        .hb-accordion-item .material-symbols-outlined {
+            color: #212121;
         }
 
         .hb-accordion-header {
@@ -327,13 +318,8 @@
             border: none;
             outline: none;
             user-select: none;
-            /* 드래그 방지 */
         }
 
-        /* 화살표/아이콘 회전 효과 */
-
-
-        /* 크롬/사파리 기본 details 마커 제거 */
         .hb-accordion-header::-webkit-details-marker {
             display: none;
         }
@@ -369,16 +355,16 @@
 
         .hb-accordion-item.is-active .hb-accordion-content {
             max-height: 800px;
-            /* 충분한 높이 */
             opacity: 1;
-            padding-bottom: 8px;
+            padding-bottom: 4px;
             transition: max-height 1s ease-in-out, opacity 0s ease;
         }
 
         .hb-accordion-content li {
             line-height: 148%;
             list-style: none;
-            font-size: 12px;
+            font-size: 13px;
+            line-height: 18.2px;
         }
 
         .hb-accordion-content ul {
@@ -386,35 +372,45 @@
             margin: 0 0 8px 8px;
         }
 
-        /* 4. 구매 혜택 및 CTA */
         .hb-guide-wrapper {
             margin: 24px 0;
-            background-color: #212121;
-            padding: 10px 12px;
-            border-radius: 4px;
+            background: linear-gradient(93deg, #212121 40.53%, #A1988B 113.9%);
+            padding: 12px;
             display: flex;
-            font-size: 10px;
+            gap: 12px;
+        }
+
+        .hb-guide-wrapper-col {
+            display: flex;
+            gap: 4px;
+            flex-direction: column;
+        }
+
+        .hb-guide-wrapper-title {
+            line-height: 120%;
+            letter-spacing: -0.04px;
+            margin: 0;
         }
 
         .hb-guide-wrapper .hb-guide-wrapper-title {
-            font-size: 20px;
-            margin: 2px 0 6px 0;
+            font-size: 18px;
             font-weight: 500;
-            color: #FFF;
+            color: #fff;
         }
 
         .hb-guide-wrapper a {
             display: flex;
             flex-direction: row !important;
             text-decoration: none;
-            color: #FFF;
+            color: #fff;
+            font-weight: 400;
             align-items: center;
             justify-content: space-between;
             width: 100%;
         }
 
         .rolling-window {
-            font-size: 12px;
+            font-size: 13px;
             height: 24px;
             overflow: hidden;
         }
@@ -427,13 +423,10 @@
 
         .rolling-list li {
             height: 24px;
-            /* window 높이와 동일해야 함 */
-            line-height: 24px;
             display: flex;
             align-items: center;
         }
 
-        /* 하단 고정 영역 (타이틀 + 아이콘) */
         .static-row {
             display: flex;
             justify-content: space-between;
@@ -445,7 +438,7 @@
         }
 
         .highlight {
-            background-color: rgba(255, 164, 53, 0.371);
+            background-color: rgba(229, 124, 86, 0.24);
         }
 
         .product-tabs {
@@ -457,7 +450,7 @@
             position: sticky;
             top: 163px;
             z-index: 990;
-            border-bottom: solid 0.8px rgba(33, 33, 33, 0.36);
+            border-bottom: solid 0.8px rgba(33, 33, 33, 1);
             background-color: rgba(250, 246, 239, 1);
         }
 
@@ -469,7 +462,7 @@
             flex: 1;
             width: 100%;
             text-align: center;
-            padding: 16px 0;
+            padding: 24px 0 12px 0;
             font-size: 14px;
             font-weight: 400;
             color: rgba(33, 33, 33, 0.48);
@@ -497,12 +490,6 @@
                 bottom: 24px;
                 right: 24px;
             }
-        }
-
-        .cta-blankBox {
-            height: 200px;
-
-
         }
     </style>
 </head>
@@ -546,6 +533,7 @@
         </div>
     </header>
     <div class="pdp-container">
+        <div class="shop-container-margin-top"></div>
         <div class="shop-container">
             <div class="image-section">
                 <div class="hb-product-detail-container">
@@ -598,7 +586,9 @@
                     <div class="hb-vreview-widget" id="review">
                         <div class="widget-header">
                             <div class="rating-summary">★ 5 리뷰 1,864개</div>
-                            <a href="#" class="view-all">전체보기 ></a>
+                            <a href="#" class="view-all">전체보기<span class="material-symbols-outlined">
+                                    keyboard_arrow_right
+                                </span></a>
                         </div>
 
                         <div class="satisfaction-banner">
@@ -683,14 +673,16 @@
                         </div>
                         <div class="hb-coupon-section">
                             <ul>
-                                <li style="color: rgba(33, 33, 33, 0.56); padding-right: 16px;">최저가</li>
-                                <li><img src="https://developers.pay.naver.com/img/logo/symbol/symbol_cr_npaygr_large.svg"
-                                        style="padding-right: 2px;">자사몰 네이버페이 결제 시<span
-                                        style="font-weight: 600; padding-left: 4px;">적립금 7.5%</li>
+                                <li style="color: rgba(33, 33, 33, 0.56); padding-right: 8px;">최저가</li>
+                                <li><img
+                                        src="https://developers.pay.naver.com/img/logo/symbol/symbol_cr_npaygr_large.svg">자사몰
+                                    네이버페이 결제 시<span style="font-weight: 600; padding-left: 4px;">적립금 7.5%</span> </li>
                             </ul>
                             <ul>
-                                <li style="font-weight: 600; font-size: 18px; padding-right: 16px;">15,900원</li>
-                                <li><a href=" ">쿠폰 받기<span class="material-symbols-outlined">download</span></a></li>
+                                <li style="font-weight: 500; font-size: 18px; padding-right: 12px;">15,900원</li>
+                                <li><a href="#">쿠폰받기<span class="material-symbols-outlined"
+                                            style="width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;">download</span></a>
+                                </li>
                             </ul>
 
 
@@ -698,7 +690,7 @@
                     </div>
 
                     <div class="hb-product-wrapper">
-                        <div class="hb-product-container" id="accordionGroup">
+                        <div class="hb-product-info-container" id="accordionGroup">
                             <div class="hb-accordion-item is-active">
                                 <div class="hb-accordion-header" onclick="toggleAccordion(this)">
                                     상품 정보
@@ -741,61 +733,6 @@
                         </div>
                     </div>
                 </div>
-                <script>
-                    document.addEventListener('DOMContentLoaded', () => {
-
-                        const headers = document.querySelectorAll('.hb-accordion-header');
-
-                        if (headers.length > 0) {
-                            headers.forEach(header => {
-                                header.addEventListener('click', () => {
-                                    const content = header.nextElementSibling;
-
-                                    if (content) {
-                                        content.classList.toggle('active');
-                                        const icon = header.querySelector('.material-symbols-outlined');
-
-                                        if (icon) {
-                                            if (content.classList.contains('active')) {
-                                                icon.textContent = 'remove';
-                                            } else {
-                                                icon.textContent = 'add';
-                                            }
-                                        }
-                                    }
-                                });
-                            });
-                        }
-
-                        const list = document.querySelector('.rolling-list');
-
-                        if (list) {
-                            const items = list.querySelectorAll('li');
-
-                            if (items.length > 0) {
-                                const itemCount = items.length;
-                                const itemHeight = 24;
-                                let currentIndex = 0;
-
-                                const firstItemClone = items[0].cloneNode(true);
-                                list.appendChild(firstItemClone);
-
-                                setInterval(() => {
-                                    currentIndex++; s
-                                    list.style.transform = `translateY(-${currentIndex * itemHeight}px)`;
-
-                                    if (currentIndex === itemCount) {
-                                        setTimeout(() => {
-                                            list.style.transition = 'none';
-                                            currentIndex = 0;
-                                            list.style.transform = `translateY(0px)`;
-                                        }, 500);
-                                    }
-                                }, 3600);
-                            }
-                        }
-                    });
-                </script>
                 <div class="hb-option-cta">
                     <div class="hb-guide-wrapper">
                         <a href="https://houseboy.kr/guide?keyword_type=all&keyword=%23CLEAN" target="_blank">
@@ -834,15 +771,15 @@
 
                     <div class="cta-group">
                         <div class="btn-row">
-                            <button class="btn btn-buy">바로 구매하기</button>
-                            <button class="btn btn-cart">장바구니</button>
+                            <button class="CTA-btn btn-buy">바로 구매하기</button>
+                            <button class="CTA-btn btn-cart">장바구니</button>
                         </div>
                         <div class="btn-row">
-                            <button class="btn btn-naver"><span style="font-weight: 900; font-style: italic;">N</span>
+                            <button class="CTA-btn btn-naver"><span
+                                    style="font-weight: 900; font-style: italic;">N</span>
                                 Pay 구매</button>
-                            <button class="btn btn-naver" style="max-width: 60px;">찜</button>
+                            <button class="CTA-btn btn-naver" style="max-width: 44px;">찜</button>
                         </div>
-                        <div class="cta-blankBox"></div>
                     </div>
                 </div>
             </div>
@@ -854,7 +791,6 @@
 
     <script>
         // 상품 정보 아코디언을 제어하며 한 번에 하나의 항목만 열리도록 관리
-
         document.addEventListener('DOMContentLoaded', initAccordion);
 
         function initAccordion() {
@@ -915,25 +851,23 @@
         }
     </script>
     <script>
+        // 상단 탭 이동 관련
         document.addEventListener('DOMContentLoaded', initTabs);
 
         function initTabs() {
             const tabs = document.querySelectorAll('.tab-item');
-            // 감시할 섹션들 (ID 기준)
             const sectionIds = ['review', 'details', 'qna', 'delivery'];
-            const headerOffset = 220; // 상단 헤더 + 탭 높이 합산 여유값
-            let isScrolling = false; // 클릭 이동 중 스크롤 감지 방지 플래그
+            const headerOffset = 220;
+            let isScrolling = false;
 
             if (!tabs.length) return;
 
-            // 1. 클릭 이동 로직
             window.tabMove = function (element, targetId) {
                 const target = document.getElementById(targetId);
                 if (!target) return;
 
-                isScrolling = true; // 자동 스크롤 시작
+                isScrolling = true;
 
-                // 즉시 탭 활성화
                 tabs.forEach(tab => tab.classList.remove('active'));
                 element.classList.add('active');
 
@@ -944,11 +878,9 @@
                     behavior: 'smooth'
                 });
 
-                // 스크롤 완료 후 플래그 해제 (약 600ms 후)
                 setTimeout(() => { isScrolling = false; }, 600);
             };
 
-            // 2. 스크롤 감지에 따른 탭 활성화 로직
             window.addEventListener('scroll', () => {
                 if (isScrolling) return; // 클릭 이동 중엔 계산 패스
 
@@ -964,7 +896,6 @@
                     if (scrollPosition >= top && scrollPosition < top + height) {
                         tabs.forEach(tab => {
                             tab.classList.remove('active');
-                            // onclick 속성 내에 해당 ID가 포함되어 있는지 확인
                             if (tab.getAttribute('onclick').includes(`'${id}'`)) {
                                 tab.add('active');
                             }
@@ -975,7 +906,7 @@
         }
     </script>
     <script>
-        // 썸네일 클릭 시 메인 상품 이미지를 교체하고 선택 상태를 반영
+        // 썸네일 클릭 시 메인 상품 이미지를 교체
 
         function changeImage(element, imageUrl) {
             const mainView = document.getElementById('mainView');
@@ -996,7 +927,7 @@
         }
     </script>
     <script>
-        // 상품 옵션 선택, 수량 변경, 삭제 및 총 금액 계산을 관리
+        // 상품 옵션 선택, 수량 변경, 삭제 및 총 금액 계산
 
         let selectedList = [];
 
@@ -1049,9 +980,9 @@
             </div>
             <div class="opt-item-2f">
                 <div class="qty-box">
-                    <button onclick="updateQty(${index}, -1)">-</button>
-                    <div>${item.qty}</div>
-                    <button onclick="updateQty(${index}, 1)">+</button>
+                    <button onclick="updateQty(${index}, -1)"><span class="material-symbols-outlined">remove</span></button>
+                    <div class="qty-box-cnt">${item.qty}</div>
+                    <button onclick="updateQty(${index}, 1)"><span class="material-symbols-outlined">add</span></button>
                 </div>
                 <div>
                     ${(item.price * item.qty).toLocaleString()}원
