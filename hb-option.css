@@ -6,7 +6,6 @@
 }
 
 
-/* 모바일 대응: 모바일에서는 스크롤 분리 해제 */
 @media screen and (max-width: 1024px) {
     .shop-container {
         flex-direction: column;
@@ -19,37 +18,40 @@
     }
 }
 
-/* --- 옵션 시스템 스타일 --- */
 .option-label {
     font-size: 14px;
     font-weight: 400;
-    margin-bottom: 8px;
+    padding: 12px 8px;
     display: block;
 }
 
 .option-select {
     width: 100%;
-    padding: 10px 8px;
+    padding: 12px 8px;
     border: 0.8px solid rgba(33, 33, 33, 0.48);
+    border-radius: 2px;
     background: none;
     font-size: 14px;
     color: rgba(33, 33, 33, 0.48);
     font-family: 'Pretendard', sans-serif;
 }
 
-.option-select:active {
-    border: 0.8px solid rgba(33, 33, 33);
+.option-select:hover {
+    border: 1px solid rgba(33, 33, 33);
 }
 
-/* 선택된 옵션 아이템 박스 */
 #selected-options {
-    margin-top: 8px;
+    max-height: 16vmin;
+    overflow-y: auto;
+    margin: 12px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #21212148 transparent;
 }
 
 .opt-item {
     background-color: rgba(33, 33, 33, 0.04);
     padding: 8px;
-    border-radius: 2px;
+    border-radius: 4px;
     margin-bottom: 8px;
     position: relative;
 }
@@ -90,15 +92,31 @@
 /* 수량 조절 버튼 */
 .qty-box {
     display: flex;
-    gap: 8px;
     background-color: #FFF;
     font-size: 14px;
     align-items: center;
+    border: 0.8px solid #21212148;
+    border-radius: 2px;
+
 }
+
+.qty-box .material-symbols-outlined {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.qty-box-cnt {
+    width: 24px;
+    text-align: center;
+
+}
+
 .qty-box button {
+
+    display: flex;
     border: 0;
-    background-color: #FFF;
-    padding: 4px 12px;
+    background: none;
+    padding: 8px;
 }
 
 .opt-price {
@@ -106,12 +124,14 @@
     font-size: 14px;
 }
 
-/* 총 합계 */
 .total-area {
-    margin: 24px 0;
+    padding: 24px 0 0 0;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    margin-top: -24px;
+    position: relative;
+    background: linear-gradient(180deg, rgba(250, 246, 239, 0.00) 0%, #FAF6EF 15%);
 }
 
 .total-label {
@@ -120,19 +140,17 @@
 }
 
 .total-price {
-    font-size: 24px;
+    font-size: 22px;
     color: #212121;
-    font-weight: 700;
+    font-weight: 500;
 }
 
-/* --- 결제 CTA 그룹 --- */
 .cta-group {
-    margin: 24px 0 80px 0;
+    margin-top: 24px;
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
-
 .btn-buy {
     background: #212121;
     color: #fff;
@@ -169,13 +187,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 44px;
     gap: 8px;
-}
-
-.btn-naver:hover {
-    background-color: var(--naver-green);
-    color: #FFF;
-    transition: ease-out 0.3s;
 }
 
 .btn-naver img {
@@ -191,10 +204,14 @@
     display: flex;
     justify-content: space-between;
 }
+.opt-item-1f .material-symbols-outlined{
+    color: #21212164;
+}
 
 .opt-item-2f {
     display: flex;
     justify-content: space-between;
     margin-top: 4px;
     font-size: 16px;
+    align-items: center;
 }
