@@ -29,7 +29,6 @@
     width: 100%;
     padding: 12px 8px;
     border: 0.8px solid rgba(33, 33, 33, 0.48);
-    border-radius: 2px;
     background: none;
     font-size: 14px;
     color: rgba(33, 33, 33, 0.48);
@@ -51,7 +50,6 @@
 .opt-item {
     background-color: rgba(33, 33, 33, 0.04);
     padding: 8px;
-    border-radius: 4px;
     margin-bottom: 8px;
     position: relative;
 }
