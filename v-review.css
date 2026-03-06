@@ -4,24 +4,26 @@
     background-color: #ffffff10;
 }
 
-/* 상단 헤더: 별점 및 전체보기 */
 .widget-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 12px;
 }
+
 .widget-header .rating-summary {
     font-size: 14px;
     font-weight: 500;
 }
+
 .widget-header .view-all {
     font-size: 14px;
     color: #999;
     text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
-/* 만족도 배너 */
 .satisfaction-banner {
     background-color: rgba(33, 33, 33, 0.04);
     padding: 16px;
@@ -32,12 +34,12 @@
     align-items: center;
     gap: 4px;
 }
+
 .satisfaction-banner .percent {
     color: #E6603F;
     font-weight: 700;
 }
 
-/* 포토 리뷰 그리드/슬라이드 */
 .photo-review-strip {
     display: flex;
     height: 200px;
@@ -47,27 +49,35 @@
     scrollbar-width: none;
     flex-direction: row;
 }
-.photo-review-strip::-webkit-scrollbar { display: none; } /* 크롬 */
+
+.photo-review-strip::-webkit-scrollbar {
+    display: none;
+}
 
 .photo-review-strip img {
     object-fit: cover;
     border-radius: 2px;
 }
 
-/* 베스트 리뷰 카드 */
 .best-review-card {
     border: solid 0.8px rgba(33, 33, 33, 0.36);
     border-radius: 2px;
     padding: 24px;
     margin-bottom: 16px;
 }
-.review-stars { color: #E6603F; margin-bottom: 12px; }
+
+.review-stars {
+    color: #E6603F;
+    margin-bottom: 12px;
+}
+
 .review-text {
     font-size: 12px;
     line-height: 1.4;
     color: #212121;
     margin-bottom: 16px;
 }
+
 .reviewer-info {
     background-color: rgba(33, 33, 33, 0.04);
     padding: 12px;
@@ -76,29 +86,41 @@
     color: #888;
 }
 
-/* 하단 버튼 및 페이지네이션 */
 .pagination-dots {
     display: flex;
     justify-content: center;
     gap: 6px;
     margin: 20px 0;
 }
-.dot { width: 6px; height: 6px; border-radius: 50%; background-color: #ddd; }
-.dot.active { background-color: #333; width: 12px; border-radius: 3px; }
-.review-more-container{
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #ddd;
+}
+
+.dot.active {
+    background-color: #333;
+    width: 12px;
+    border-radius: 3px;
+}
+
+.review-more-container {
     display: flex;
     justify-content: center;
 }
+
 .more-btn {
-    width: 30%;
+    width: 100%;
     margin: auto 0;
     padding: 12px;
-    background-color: rgba(33, 33, 33, 1);
-    color: #fff;
-    border-radius: 50px;
+    background-color: rgba(33, 33, 33, 0.12);
+    color: #212121;
+    border-radius: 2px;
     font-weight: 400;
     cursor: pointer;
     border: none;
-    font-family: 'Pretendard', -apple-system, sans-serif; 
+    font-family: 'Pretendard', -apple-system, sans-serif;
     font-size: 14px;
 }
