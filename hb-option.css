@@ -148,6 +148,7 @@
     flex-direction: column;
     gap: 8px;
 }
+
 .btn-buy {
     background: #212121;
     color: #fff;
@@ -186,7 +187,8 @@
     justify-content: center;
     min-height: 44px;
     gap: 8px;
-} 
+}
+
 .btn-naver img {
     height: 20px;
 }
@@ -200,7 +202,8 @@
     display: flex;
     justify-content: space-between;
 }
-.opt-item-1f .material-symbols-outlined{
+
+.opt-item-1f .material-symbols-outlined {
     color: #21212164;
 }
 
