@@ -1,4 +1,3 @@
-/* 기본 폰트 및 배경색 설정 */
 :root {
     --hb-bg: rgba(250, 246, 239, 1);
     --hb-black: #000000;
@@ -11,15 +10,16 @@
     position: sticky;
     top: 0;
     z-index: 9999;
-    padding-bottom: 24px;
+    max-height: 105.38px;
 }
 
 /* 띠배너 */
 .top-announcement {
     background-color: #000;
-    padding: 10px 0;
+    padding: 5px 0;
     text-align: center;
 }
+
 .top-announcement a {
     color: #fff;
     text-decoration: none;
@@ -27,7 +27,6 @@
     font-weight: 500;
 }
 
-/* 메인 헤더 컨테이너 */
 .header-container {
     max-width: 1424px;
     margin: 0 auto;
@@ -37,9 +36,11 @@
     padding: 0 24px;
     position: relative;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
-.header-2F{
+
+
+.header-2F {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -47,7 +48,6 @@
     justify-content: space-between;
 }
 
-/* 로고 스타일 */
 .header-logo a {
     font-size: 24px;
     font-weight: 900;
@@ -56,12 +56,12 @@
     letter-spacing: -0.5px;
 }
 
-/* 중앙 메뉴 스타일 */
 .header-center-menu {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
+
 .header-center-menu ul {
     display: flex;
     list-style: none;
@@ -69,6 +69,7 @@
     margin: 0;
     padding: 0;
 }
+
 .header-center-menu a {
     text-decoration: none;
     color: var(--hb-black);
@@ -80,6 +81,7 @@
 .has-dot {
     position: relative;
 }
+
 .has-dot::after {
     content: '';
     position: absolute;
@@ -91,21 +93,23 @@
     border-radius: 50%;
 }
 
-/* 오른쪽 유틸리티 */
 .top-utils {
     display: flex;
     gap: 15px;
 }
+
 .top-utils a {
     text-decoration: none;
     font-size: 12px;
     color: var(--hb-gray);
 }
+
 .bottom-icons {
     display: flex;
     gap: 15px;
     align-items: center;
 }
+
 .icon-btn {
     background: none;
     border: none;
@@ -113,6 +117,7 @@
     padding: 0;
     color: var(--hb-black);
 }
+
 .bottom-icons .material-symbols-outlined {
     font-size: 24px;
     font-weight: 300;
