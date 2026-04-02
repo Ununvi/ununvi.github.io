@@ -1,126 +1,1028 @@
-/* 브이리뷰 위젯 커스텀 스타일 */
-.hb-vreview-widget {
-    margin: 48px 1px;
-    background-color: #ffffff10;
-}
+<!DOCTYPE html>
+<html lang="ko">
 
-.widget-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>houseboy PDP</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./hb-option.css" type="text/css" />
+    <link rel="stylesheet" href="./hb-navbar.css" type="text/css" />
+    <link rel="stylesheet" href="./v-review.css" type="text/css" />
+    <style>
+        :root {
+            --border-color: #eee;
+            --text-main: #212121;
+            --text-sub: #666;
+            --accent-red: #ff4d4d;
+        }
 
-.widget-header .rating-summary {
-    font-size: 14px;
-    font-weight: 500;
-}
+        button {
+            -webkit-appearance: none;
+            /* 브라우저 기본 스타일 제거 */
+            -moz-appearance: none;
+            appearance: none;
+            outline: none !important;
+        }
 
-.widget-header .view-all {
-    font-size: 14px;
-    color: #999;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
+        body {
+            font-family: 'Pretendard', -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FAF6EF;
+            color: var(--text-main);
+            -ms-overflow-style: none;
+        }
 
-.satisfaction-banner {
-    background-color: rgba(33, 33, 33, 0.04);
-    padding: 16px;
-    border-radius: 4px;
-    font-size: 14px;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
+        ::-webkit-scrollbar {
+            display: none;
+        }
 
-.satisfaction-banner .percent {
-    color: #E6603F;
-    font-weight: 700;
-}
+        .pdp-container {
+            width: 100%;
+        }
 
-.photo-review-strip {
-    display: flex;
-    height: 200px;
-    gap: 8px;
-    overflow: hidden;
-    margin-bottom: 8px;
-    scrollbar-width: none;
-    flex-direction: row;
-}
+        .shop-container {
+            display: flex;
+            max-width: 1424px;
+            margin: 0 auto;
+            gap: 80px;
+            padding: 0 24px;
+            align-items: flex-start;
+        }
 
-.photo-review-strip::-webkit-scrollbar {
-    display: none;
-}
+        .shop-container-margin-top {
+            /* 상단여백 */
+            width: 100%;
+            height: 80px;
+            background-color: #FAF6EF;
+            position: fixed;
+            top: 105px;
+            z-index: 1;
+        }
 
-.photo-review-strip img {
-    object-fit: cover;
-    border-radius: 2px;
-}
+        /* 왼쪽: 상세 이미지 영역 */
+        .image-section {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: 8px;
+        }
 
-.best-review-card {
-    border: solid 0.8px rgba(33, 33, 33, 0.36);
-    border-radius: 2px;
-    padding: 24px;
-    margin-bottom: 16px;
-}
+        .img-placeholder {
+            width: 100%;
+        }
 
-.review-stars {
-    color: #E6603F;
-    margin-bottom: 12px;
-}
+        /* 오른쪽: 상품 정보 영역 */
+        .info-section {
+            flex: 0.8;
+            position: sticky;
+            align-self: stretch;
+            height: auto;
+            will-change: transform;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
 
-.review-text {
-    font-size: 12px;
-    line-height: 1.4;
-    color: #212121;
-    margin-bottom: 16px;
-}
 
-.reviewer-info {
-    background-color: rgba(33, 33, 33, 0.04);
-    padding: 12px;
-    border-radius: 2px;
-    font-size: 12px;
-    color: #888;
-}
+        .sticky-group {
+            position: sticky;
+            top: 160px;
+        }
 
-.pagination-dots {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    margin: 20px 0;
-}
+        .main-info,
+        .hb-guide-wrapper,
+        .hb-option-cta {
+            position: relative;
+        }
 
-.dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: #ddd;
-}
+        .info-section::-webkit-scrollbar {
+            display: none;
+        }
 
-.dot.active {
-    background-color: #333;
-    width: 12px;
-    border-radius: 3px;
-}
+        .info-section:active img {
+            pointer-events: none;
+        }
 
-.review-more-container {
-    display: flex;
-    justify-content: center;
-}
+        .info-section:active {
+            cursor: grabbing;
+        }
 
-.more-btn {
-    width: 100%;
-    margin: auto 0;
-    padding: 12px;
-    background-color: rgba(33, 33, 33, 0.12);
-    color: #212121;
-    border-radius: 2px;
-    font-weight: 400;
-    cursor: pointer;
-    border: none;
-    font-family: 'Pretendard', -apple-system, sans-serif;
-    font-size: 14px;
-}
+        .hb-option-cta {
+            position: sticky;
+            top: 330px;
+            z-index: 1000;
+            padding-top: 12px;
+            background: linear-gradient(180deg, rgba(250, 246, 239, 0.00) 0%, #FAF6EF 5.0%);
+        }
+
+        view .info-section::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .info-section::-webkit-scrollbar-thumb {
+            -ms-overflow-style: none;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        .main-info {
+            position: sticky;
+            top: 160px;
+            /* 헤더 높이에 맞춤 */
+            z-index: 1001;
+            background: linear-gradient(180deg, #FAF6EF 80%, rgba(250, 246, 239, 0.00) 100%);
+            padding: 32px 0 24px 0;
+        }
+
+        .product-name {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .price-row {
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 12px;
+        }
+
+        .original-price {
+            font-size: 16px;
+            color: #bbb;
+            text-decoration: line-through;
+            font-weight: 400;
+        }
+
+        .hb-coupon-section {
+            padding: 8px;
+            font-size: 14px;
+            background-color: rgba(33, 33, 33, 0.06);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .hb-coupon-section ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hb-coupon-section ul img {
+            width: 20px;
+        }
+
+        .hb-coupon-section li {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .hb-coupon-section a {
+            padding: 4px 5px 4px 8px;
+            background-color: #212121;
+            color: #fff;
+            border-radius: 4px;
+            display: flex;
+            text-decoration: none;
+            align-items: center;
+            font-size: 12px;
+
+        }
+
+        .delivery-info {
+            font-size: 14px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .purchase-area {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .CTA-btn {
+            flex: 1;
+            padding: 12px 0;
+            font-weight: 400;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: 'Pretendard', sans-serif;
+        }
+
+        .hb-product-detail-container {
+            display: flex;
+            gap: 0;
+            flex-direction: column;
+            margin: 0 1px;
+        }
+
+        .hb-product-detail-container img {
+            width: 100%;
+        }
+
+        .main-thumbnail-view {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            /* 정사각형 유지 */
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+
+        .main-thumbnail-view img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .thumbnail-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 8px;
+        }
+
+        .thumb-item {
+            aspect-ratio: 1 / 1;
+            cursor: pointer;
+            border: 0.8px solid transparent;
+            overflow: hidden;
+            opacity: 0.6;
+            transition: all 0.2s ease;
+        }
+
+        .thumb-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumb-item.active {
+            border-color: #212121;
+            opacity: 1;
+        }
+
+        .thumb-item:hover {
+            opacity: 1;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgba(250, 246, 239, 1);
+        }
+
+        .hb-product-wrapper {
+            position: relative;
+        }
+
+        .hb-product-info-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0px;
+            height: 240px;
+        }
+
+        .hb-accordion-item {
+            border-top: 0.8px solid #212121;
+            overflow: hidden;
+        }
+
+        .hb-accordion-item .material-symbols-outlined {
+            color: #212121;
+        }
+
+        .hb-accordion-header {
+            padding: 12px 8px;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            outline: none;
+            user-select: none;
+        }
+
+        .hb-accordion-header::-webkit-details-marker {
+            display: none;
+        }
+
+        #details {
+            gap: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-weight: 200;
+            font-style: normal;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            font-feature-settings: 'liga';
+        }
+
+        .hb-accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: none;
+        }
+
+        .hb-accordion-item.is-active .hb-accordion-content {
+            max-height: 800px;
+            opacity: 1;
+            padding-bottom: 4px;
+            transition: max-height 1s ease-in-out, opacity 0s ease;
+        }
+
+        .hb-accordion-content li {
+            line-height: 148%;
+            list-style: none;
+            font-size: 13px;
+            line-height: 18.2px;
+        }
+
+        .hb-accordion-content ul {
+            padding-left: 0px;
+            margin: 0 0 8px 8px;
+        }
+
+        .hb-guide-wrapper {
+            margin: 24px 0;
+            background: linear-gradient(93deg, #212121 40.53%, #A1988B 113.9%);
+            padding: 12px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .hb-guide-wrapper-col {
+            display: flex;
+            gap: 4px;
+            flex-direction: column;
+        }
+
+        .hb-guide-wrapper-title {
+            line-height: 120%;
+            letter-spacing: -0.04px;
+            margin: 0;
+        }
+
+        .hb-guide-wrapper .hb-guide-wrapper-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .hb-guide-wrapper a {
+            display: flex;
+            flex-direction: row !important;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 400;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .rolling-window {
+            font-size: 13px;
+            height: 24px;
+            overflow: hidden;
+        }
+
+        .rolling-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .rolling-list li {
+            height: 24px;
+            display: flex;
+            align-items: center;
+        }
+
+        .static-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cta-wrapper-title {
+            margin: 0;
+        }
+
+        .highlight {
+            background-color: rgba(229, 124, 86, 0.24);
+        }
+
+        .product-tabs {
+            display: flex;
+            width: 100%;
+            max-width: 1424px;
+            margin-top: 48px;
+            align-items: center;
+            position: sticky;
+            top: 163px;
+            z-index: 990;
+            background-color: rgba(250, 246, 239, 1);
+            border-bottom: 0.8px solid transparent;
+        }
+
+        .product-tabs {
+            display: flex;
+            width: 100%;
+            max-width: 1424px;
+            margin-top: 48px;
+            align-items: center;
+            position: sticky;
+            top: 163px;
+            z-index: 990;
+            background-color: rgba(250, 246, 239, 1);
+            border-bottom: 0.8px solid rgba(33, 33, 33, 0.1);
+        }
+
+        .tab-item {
+            flex: 1;
+            position: relative;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 15px;
+            font-weight: 400;
+            color: rgba(33, 33, 33, 0.4);
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .tab-item.active {
+            color: #212121;
+            font-weight: 500;
+        }
+
+        .tab-item.active::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 0.8px;
+            background-color: #212121;
+            z-index: 1;
+        }
+
+        #naver_talk_btn img {
+            width: 52px;
+            height: 52px;
+            position: fixed;
+            bottom: 60px;
+            right: 35px;
+            cursor: pointer;
+            z-index: 99;
+            user-select: none;
+            /* 드래그 방지 */
+            text-decoration: none;
+        }
+
+        @media screen and (max-width: 767px) {
+            #naver_talk_btn img {
+                width: 45px;
+                height: 45px;
+                bottom: 24px;
+                right: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="hb-new-header">
+        <div class="top-announcement">
+            <a href="#">플러스친구하고, 브랜드 소식과 함께 10% 할인 받기 ➡️</a>
+        </div>
+
+        <div class="header-container">
+            <div class="header-1F">
+                <div class="top-utils">
+                    <a href="#">로그인</a>
+                    <a href="#">회원가입</a>
+                    <a href="#">고객지원</a>
+                </div>
+            </div>
+
+            <div class="header-2F">
+                <div class="header-logo">
+                    <a href="#">HOUSEBOY®</a>
+                </div>
+
+                <nav class="header-center-menu">
+                    <ul>
+                        <li class="has-dot"><a href="#">제품 가이드</a></li>
+                        <li><a href="#">CLEAN</a></li>
+                        <li><a href="#">TOWEL</a></li>
+                        <li><a href="#">온라인 집들이</a></li>
+                        <li><a href="#">ABOUT</a></li>
+                        <li><a href="#">고객지원</a></li>
+                    </ul>
+                </nav>
+                <div class="bottom-icons">
+                    <button class="icon-btn"><span class="material-symbols-outlined">search</span></button>
+                    <button class="icon-btn"><span class="material-symbols-outlined">shopping_bag</span></button>
+                    <button class="icon-btn"><span class="material-symbols-outlined">menu</span></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="pdp-container">
+        <div class="shop-container-margin-top"></div>
+        <div class="shop-container">
+            <div class="image-section">
+                <div class="hb-product-detail-container">
+                    <div class="image-section">
+                        <div class="main-thumbnail-view">
+                            <img id="mainView" src="https://cdn.imweb.me/thumbnail/20251120/83cf62cb64707.jpg"
+                                alt="메인 이미지">
+                        </div>
+
+                        <div class="thumbnail-list">
+                            <div class="thumb-item active"
+                                onclick="changeImage(this, 'https://cdn.imweb.me/thumbnail/20251120/83cf62cb64707.jpg')">
+                                <img src="https://cdn.imweb.me/thumbnail/20251120/83cf62cb64707.jpg" alt="썸네일 1">
+                            </div>
+                            <div class="thumb-item"
+                                onclick="changeImage(this, 'https://cdn.imweb.me/thumbnail/20250916/53f0a2b223cbe.jpg')">
+                                <img src="https://cdn.imweb.me/thumbnail/20250916/53f0a2b223cbe.jpg" alt="썸네일 2">
+                            </div>
+                            <div class="thumb-item"
+                                onclick="changeImage(this, 'https://cdn.imweb.me/thumbnail/20260116/687067317b326.jpg')">
+                                <img src="https://cdn.imweb.me/thumbnail/20260116/687067317b326.jpg" alt="썸네일 3">
+                            </div>
+                            <div class="thumb-item"
+                                onclick="changeImage(this, 'https://cdn.imweb.me/thumbnail/20260116/b5c4943f969d7.jpg')">
+                                <img src="https://cdn.imweb.me/thumbnail/20260116/b5c4943f969d7.jpg" alt="썸네일 4">
+                            </div>
+                            <div class="thumb-item"
+                                onclick="changeImage(this, 'https://cdn.imweb.me/thumbnail/20260116/5afa06550c49e.jpg')">
+                                <img src="https://cdn.imweb.me/thumbnail/20260116/5afa06550c49e.jpg" alt="썸네일 5">
+                            </div>
+                            <div class="thumb-item"
+                                onclick="changeImage(this, 'https://cdn.imweb.me/thumbnail/20260121/e4c4f21301c71.png')">
+                                <img src="https://cdn.imweb.me/thumbnail/20260121/e4c4f21301c71.png" alt="썸네일 6">
+                            </div>
+                            <div class="thumb-item"
+                                onclick="changeImage(this, 'https://cdn.imweb.me/thumbnail/20260122/e15925747277e.jpg')">
+                                <img src="https://cdn.imweb.me/thumbnail/20260122/e15925747277e.jpg" alt="썸네일 7">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-tabs" id="stickyTab">
+                        <div class="tab-item active" onclick="tabMove(this, 'review')">리뷰 <span
+                                class="count">1,864</span></div>
+                        <div class="tab-item " onclick="tabMove(this, 'details')">상세정보</div>
+                        <div class="tab-item" onclick="tabMove(this, 'qna')">Q&A <span class="count">69</span></div>
+                        <div class="tab-item" style="border-right: 0;" onclick="tabMove(this, 'delivery')">반품/교환</div>
+                    </div>
+
+                    <div class="hb-vreview-widget" id="review">
+                        <div class="widget-header">
+                            <div class="rating-summary">★ 5 리뷰 1,864개</div>
+                            <a href="#" class="view-all">전체보기<span class="material-symbols-outlined">
+                                    keyboard_arrow_right
+                                </span></a>
+                        </div>
+
+                        <div class="satisfaction-banner">
+                            ♥︎ 구매자의 <span class="percent">98%</span>가 만족한 상품이에요
+                        </div>
+
+                        <div class="photo-review-strip" id="photoStrip">
+                            <img
+                                src="https://thumbnail.vreview.tv/review/images/production/2026/1/19/33f82717402d48b78c792d29c9784ba4/thumbnail/resize/size__780_780">
+                            <img
+                                src="https://thumbnail.vreview.tv/review/images/production/2026/1/19/5b2f7ea9ddae4161af23e0981c0a462d/thumbnail/resize/size__780_780">
+                            <img
+                                src="https://thumbnail.vreview.tv/review/images/production/2026/1/19/3eea32b2c89645608bda0d3d30956be8/thumbnail/resize/size__780_780">
+                            <img
+                                src="https://thumbnail.vreview.tv/review/images/production/2026/2/2/29d70f1774a143599ef006e2aebb5e10/thumbnail/resize/size__780_780">
+                            <img
+                                src="https://thumbnail.vreview.tv/review/images/production/2026/2/13/bac220e72f5547bb8a633f6384325367/thumbnail/resize/size__780_780">
+                        </div>
+                        <div class="best-review-card">
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-text">
+                                정말 만족스러운 클리너예요! 🌿 주방 기름때 닦을 때 끈적임 없이 부드럽게 닦이고, 연마제 제거용으로도 최고입니다. 성분이 순해서 맨손으로 써도 자극이
+                                없어서 좋네요. 패키지도 깔끔해서 싱크대 위에 두기에도 예뻐요! 😊
+                            </div>
+                            <div class="reviewer-info">
+                                <strong>v***********t</strong><br>
+                                구매 옵션: 더티클레이 1ea
+                            </div>
+                        </div>
+                        <div class="pagination-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <div class="review-more-container">
+                            <button class="more-btn">리뷰 더보기</button>
+                        </div>
+                    </div>
+
+
+                    <div id="details" class="section hb-product-detail-container">
+                        <img class="fr-dib" id="hb-review-event-banner"
+                            src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/b35b3f586a370.jpg">
+                        <img class="fr-dib" src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/66655eece229c.jpg">
+                        <img class="fr-dib" src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/b0dae6f91d0d7.gif">
+                        <img class="fr-dib" src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/66dc25648cd6e.jpg">
+                        <img src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/1e8337ba4232c.jpeg"
+                            class="fr-fic fr-dib" data-files="[object Object]">
+                        <img class="fr-dib" src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/4bc75ebf33408.jpg">
+                        <img class="fr-dib" src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/0d135478b2ee6.jpg">
+                        <img class="fr-dib" src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/3c101c3b54284.gif">
+                        <img class="fr-dib" src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/ee5d6141da606.jpg">
+                        <img class="fr-dib" src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/8db4f9df4df26.gif">
+                        <img class="fr-dib" src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/9c296e0fce598.jpg">
+                        <img class="fr-dib" src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/f4b00e8fdb0a2.gif">
+                        <img class="fr-dib" src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/48666863ffcf1.jpg">
+                        <img class="fr-dib" src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/e182b22a6b5f6.gif">
+                        <img class="fr-dib" src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/258be61c54974.jpg">
+                        <img src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/7162cf96b1e45.jpeg"
+                            class="fr-fic fr-dib" data-files="[object Object]">
+                        <img class="fr-dib" src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/89cc7c7ba1f79.jpg">
+                        <img src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/6ebb4ebbeda08.jpeg"
+                            class="fr-fic fr-dib fr-fil" data-files="[object Object]">
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="info-section">
+                <div class="sticky-group">
+                    <div class="main-info">
+                        <div class="product-name">더티클레이 다목적 클리너 400g*1</div>
+                        <div class="price-row">
+                            <span style="color:var(--accent-red)">11%</span>
+                            <span>16,900원</span>
+                            <span class="original-price">19,000원</span>
+                        </div>
+                        <div class="hb-coupon-section">
+                            <ul>
+                                <li style="color: rgba(33, 33, 33, 0.56); padding-right: 8px;">최저가</li>
+                                <li><img
+                                        src="https://developers.pay.naver.com/img/logo/symbol/symbol_cr_npaygr_large.svg">자사몰
+                                    네이버페이 결제 시<span style="font-weight: 600; padding-left: 4px;">적립금 7.5%</span> </li>
+                            </ul>
+                            <ul>
+                                <li style="font-weight: 500; font-size: 18px; padding-right: 12px;">15,900원</li>
+                                <li><a href="#">쿠폰받기<span class="material-symbols-outlined"
+                                            style="width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;">download</span></a>
+                                </li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+
+                    <div class="hb-product-wrapper">
+                        <div class="hb-product-info-container" id="accordionGroup">
+                            <div class="hb-accordion-item is-active">
+                                <div class="hb-accordion-header" onclick="toggleAccordion(this)">
+                                    상품 정보
+                                    <span class="material-symbols-outlined">add</span>
+                                </div>
+                                <div class="hb-accordion-content">
+                                    <ul>
+                                        <li>스텐 주방용품 연마제 제거</li>
+                                        <li>주방가전 기름때 관리</li>
+                                        <li>순한 성분으로 맨손 사용 가능</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="hb-accordion-item">
+                                <div class="hb-accordion-header" onclick="toggleAccordion(this)">
+                                    배송 안내
+                                    <span class="material-symbols-outlined">add</span>
+                                </div>
+                                <div class="hb-accordion-content">
+                                    <ul>
+                                        <li>영업일 기준 1~2일 내 출고</li>
+                                        <li>오후 1시 전까지 주문 시 당일 배송</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="hb-accordion-item">
+                                <div class="hb-accordion-header" onclick="toggleAccordion(this)">
+                                    구매 혜택
+                                    <span class="material-symbols-outlined">add</span>
+                                </div>
+                                <div class="hb-accordion-content">
+                                    <ul>
+                                        <li>사진 리뷰 작성 시 <span class="highlight">2,000원</span> 적립금 지급</li>
+                                        <li>동영상 리뷰 작성 시 <span class="highlight">3,000원</span> 적립금 지급</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hb-option-cta">
+                    <div class="hb-guide-wrapper">
+                        <a href="https://houseboy.kr/guide?keyword_type=all&keyword=%23CLEAN" target="_blank">
+                            <div class="hb-guide-wrapper-col">
+                                <div class="rolling-window">
+                                    <ul class="rolling-list">
+                                        <li>닦아도 닦아도 검은 물이 나온다면?</li>
+                                        <li>사용 후에도 여전히 얼룩이 남아있나요?</li>
+                                        <li>오븐, 에어프라이어, 스텐 팬… 어디까지 쓸 수 있을까요?</li>
+                                        <li>더티클레이 200% 활용하는 방법</li>
+                                    </ul>
+                                </div>
+
+                                <div class="static-row">
+                                    <p class="hb-guide-wrapper-title">더티클레이 가이드를 확인해주세요</p>
+                                </div>
+                            </div>
+                            <span class="material-symbols-outlined">arrow_circle_right</span>
+                        </a>
+                    </div>
+                    <span class="option-label">상품 옵션<span style="color: #ff4d4d; padding-left: 2px;">*</span></span>
+                    <select class="option-select" onchange="addOption(this)">
+                        <option value="" hidden>[필수] 옵션을 선택해 주세요-</option>
+                        <option value="1ea" data-price="16900">더티클레이 1ea</option>
+                        <option value="2ea" data-price="+33800">더티클레이 2ea</option>
+                        <option value="3ea" data-price="+59000">더티클레이 3ea</option>
+                        <option value="4ea" data-price="+67600">더티클레이 4ea</option>
+                    </select>
+
+                    <div id="selected-options"></div>
+
+                    <div class="total-area">
+                        <span class="total-label">총 상품 금액</span>
+                        <span class="total-price" id="totalPrice">0원</span>
+                    </div>
+
+                    <div class="cta-group">
+                        <div class="btn-row">
+                            <button class="CTA-btn btn-buy">바로 구매하기</button>
+                            <button class="CTA-btn btn-cart">장바구니</button>
+                        </div>
+                        <div class="btn-row">
+                            <button class="CTA-btn btn-naver"><span
+                                    style="font-weight: 900; font-style: italic;">N</span>
+                                Pay 구매</button>
+                            <button class="CTA-btn btn-naver" style="max-width: 44px;">찜</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="naver_talk_btn"><a href="http://talk.naver.com/W42WM9" target="_blank"><img
+                src="https://cdn.imweb.me/upload/S20230424610d85b7e8034/13e81097bfb0f.png"></a></div>
+
+    <script>
+        // 상품 정보 아코디언을 제어하며 한 번에 하나의 항목만 열리도록 관리
+        document.addEventListener('DOMContentLoaded', initAccordion);
+
+        function initAccordion() {
+            const headers = document.querySelectorAll('.hb-accordion-header');
+            if (!headers.length) return;
+
+            headers.forEach(header => {
+                header.addEventListener('click', () => {
+                    const currentItem = header.parentElement;
+                    const isActive = currentItem.classList.contains('is-active');
+
+                    headers.forEach(h => {
+                        h.parentElement.classList.remove('is-active');
+                        const icon = h.querySelector('.material-symbols-outlined');
+                        if (icon) icon.innerText = 'add';
+                    });
+
+                    if (!isActive) {
+                        currentItem.classList.add('is-active');
+                        const icon = header.querySelector('.material-symbols-outlined');
+                        if (icon) icon.innerText = 'remove';
+                    }
+                });
+            });
+        }
+    </script>
+    <script>
+        // 가이드 문구를 일정 간격으로 위로 롤링 애니메이션 처리
+
+        document.addEventListener('DOMContentLoaded', initRollingGuide);
+
+        function initRollingGuide() {
+            const list = document.querySelector('.rolling-list');
+            if (!list) return;
+
+            const items = list.querySelectorAll('li');
+            if (!items.length) return;
+
+            const itemHeight = 24;
+            const itemCount = items.length;
+            let currentIndex = 0;
+
+            list.appendChild(items[0].cloneNode(true));
+
+            setInterval(() => {
+                currentIndex++;
+                list.style.transition = 'transform 0.5s ease-in-out';
+                list.style.transform = `translateY(-${currentIndex * itemHeight}px)`;
+
+                if (currentIndex === itemCount) {
+                    setTimeout(() => {
+                        list.style.transition = 'none';
+                        currentIndex = 0;
+                        list.style.transform = 'translateY(0)';
+                    }, 500);
+                }
+            }, 3600);
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', initTabs);
+
+        function initTabs() {
+            const tabs = document.querySelectorAll('.tab-item');
+            const sectionIds = ['review', 'details', 'qna', 'delivery'];
+            const headerOffset = 220;
+            let isScrolling = false;
+
+            if (!tabs.length) return;
+
+            window.tabMove = function (element, targetId) {
+                const target = document.getElementById(targetId);
+                if (!target) return;
+
+                isScrolling = true;
+
+                // 모든 탭에서 active 제거 후 클릭한 요소에만 추가
+                tabs.forEach(tab => tab.classList.remove('active'));
+                element.classList.add('active');
+
+                const position = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: position,
+                    behavior: 'smooth'
+                });
+
+                // 스크롤이 끝날 즈음 플래그 해제
+                setTimeout(() => { isScrolling = false; }, 800);
+            };
+
+            window.addEventListener('scroll', () => {
+                if (isScrolling) return;
+
+                const scrollPosition = window.scrollY + headerOffset + 50;
+
+                sectionIds.forEach(id => {
+                    const section = document.getElementById(id);
+                    if (!section) return;
+
+                    const top = section.offsetTop;
+                    const height = section.offsetHeight;
+
+                    if (scrollPosition >= top && scrollPosition < top + height) {
+                        tabs.forEach(tab => {
+                            tab.classList.remove('active');
+                            // 오타 수정: tab.add('active') -> tab.classList.add('active')
+                            // 조건식: onclick 속성 내에 해당 id가 포함되어 있는지 확인
+                            if (tab.getAttribute('onclick').includes(`'${id}'`)) {
+                                tab.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            });
+        }
+    </script>
+    <script>
+        // 썸네일 클릭 시 메인 상품 이미지를 교체
+
+        function changeImage(element, imageUrl) {
+            const mainView = document.getElementById('mainView');
+            if (!mainView) return;
+
+            mainView.style.opacity = '0.5';
+
+            setTimeout(() => {
+                mainView.src = imageUrl;
+                mainView.style.opacity = '1';
+            }, 150);
+
+            document
+                .querySelectorAll('.thumb-item')
+                .forEach(t => t.classList.remove('active'));
+
+            element.classList.add('active');
+        }
+    </script>
+    <script>
+        // 상품 옵션 선택, 수량 변경, 삭제 및 총 금액 계산
+
+        let selectedList = [];
+
+        function addOption(select) {
+            const value = select.value;
+            if (!value) return;
+
+            const priceAttr =
+                select.options[select.selectedIndex].getAttribute('data-price');
+
+            const price =
+                parseInt(priceAttr.replace('+', '')) || 16900;
+
+            if (selectedList.find(item => item.name === value)) {
+                alert("이미 선택된 옵션입니다.");
+                return;
+            }
+
+            selectedList.push({ name: value, price, qty: 1 });
+            renderOptions();
+            select.value = "";
+        }
+
+        function updateQty(index, delta) {
+            if (selectedList[index].qty + delta < 1) return;
+            selectedList[index].qty += delta;
+            renderOptions();
+        }
+
+        function removeOption(index) {
+            selectedList.splice(index, 1);
+            renderOptions();
+        }
+
+        function renderOptions() {
+            const container = document.getElementById('selected-options');
+            if (!container) return;
+
+            let total = 0;
+
+            container.innerHTML = selectedList.map((item, index) => {
+                total += item.price * item.qty;
+
+                return `
+        <div class="opt-item">
+            <div class="opt-item-1f">
+            <div class="opt-name">${item.name}</div>
+            <span class="material-symbols-outlined"
+                  onclick="removeOption(${index})">close</span>
+            </div>
+            <div class="opt-item-2f">
+                <div class="qty-box">
+                    <button onclick="updateQty(${index}, -1)"><span class="material-symbols-outlined">remove</span></button>
+                    <div class="qty-box-cnt">${item.qty}</div>
+                    <button onclick="updateQty(${index}, 1)"><span class="material-symbols-outlined">add</span></button>
+                </div>
+                <div>
+                    ${(item.price * item.qty).toLocaleString()}원
+                </div>
+            </div>
+        </div>`;
+            }).join('');
+
+            document.getElementById('totalPrice').innerText =
+                total.toLocaleString() + '원';
+        }
+    </script>
+</body>
+
+</html>
